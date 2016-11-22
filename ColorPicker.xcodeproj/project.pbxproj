@@ -14,6 +14,18 @@
 		1ECD39691DE42ED400896C1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECD39671DE42ED400896C1F /* LaunchScreen.storyboard */; };
 		1ECD39741DE42ED400896C1F /* ColorPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39731DE42ED400896C1F /* ColorPickerTests.swift */; };
 		1ECD397F1DE42ED400896C1F /* ColorPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD397E1DE42ED400896C1F /* ColorPickerUITests.swift */; };
+		1ECD398D1DE432B700896C1F /* WelcomeUIViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD398C1DE432B700896C1F /* WelcomeUIViewControler.swift */; };
+		1ECD398F1DE4349700896C1F /* Alerdialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD398E1DE4349700896C1F /* Alerdialog.swift */; };
+		1ECD39921DE4353000896C1F /* SettingControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39911DE4353000896C1F /* SettingControler.swift */; };
+		1ECD39951DE4356700896C1F /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39941DE4356700896C1F /* PhotoPicker.swift */; };
+		1ECD39971DE4358A00896C1F /* PhotoPickDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39961DE4358A00896C1F /* PhotoPickDialog.swift */; };
+		1ECD39991DE435C500896C1F /* PhotoColorUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39981DE435C500896C1F /* PhotoColorUIView.swift */; };
+		1ECD399C1DE4364D00896C1F /* ColorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD399B1DE4364D00896C1F /* ColorMode.swift */; };
+		1ECD39A11DE4368500896C1F /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39A01DE4368500896C1F /* DLRadioButton.m */; };
+		1ECD39A31DE4375900896C1F /* PhotoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39A21DE4375900896C1F /* PhotoLayer.swift */; };
+		1ECD39A61DE437A800896C1F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39A51DE437A800896C1F /* UIColor.swift */; };
+		1ECD39A81DE4381500896C1F /* PhotoDialogUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39A71DE4381500896C1F /* PhotoDialogUIVIew.swift */; };
+		1ECD39AB1DE4383F00896C1F /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39AA1DE4383E00896C1F /* CustomIOSAlertView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +59,21 @@
 		1ECD397A1DE42ED400896C1F /* ColorPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECD397E1DE42ED400896C1F /* ColorPickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerUITests.swift; sourceTree = "<group>"; };
 		1ECD39801DE42ED400896C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1ECD398C1DE432B700896C1F /* WelcomeUIViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeUIViewControler.swift; path = ../../ColorPickerOld/ColorPicker/WelcomeUIViewControler.swift; sourceTree = "<group>"; };
+		1ECD398E1DE4349700896C1F /* Alerdialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerdialog.swift; sourceTree = "<group>"; };
+		1ECD39911DE4353000896C1F /* SettingControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingControler.swift; sourceTree = "<group>"; };
+		1ECD39941DE4356700896C1F /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		1ECD39961DE4358A00896C1F /* PhotoPickDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickDialog.swift; sourceTree = "<group>"; };
+		1ECD39981DE435C500896C1F /* PhotoColorUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoColorUIView.swift; sourceTree = "<group>"; };
+		1ECD399B1DE4364D00896C1F /* ColorMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorMode.swift; sourceTree = "<group>"; };
+		1ECD399E1DE4368500896C1F /* ColorPicker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColorPicker-Bridging-Header.h"; sourceTree = "<group>"; };
+		1ECD399F1DE4368500896C1F /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		1ECD39A01DE4368500896C1F /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		1ECD39A21DE4375900896C1F /* PhotoLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLayer.swift; sourceTree = "<group>"; };
+		1ECD39A51DE437A800896C1F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1ECD39A71DE4381500896C1F /* PhotoDialogUIVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDialogUIVIew.swift; sourceTree = "<group>"; };
+		1ECD39A91DE4383E00896C1F /* CustomIOSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOSAlertView.h; sourceTree = "<group>"; };
+		1ECD39AA1DE4383E00896C1F /* CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOSAlertView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +124,20 @@
 		1ECD395D1DE42ED400896C1F /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
+				1ECD39A41DE4377F00896C1F /* Extension */,
+				1ECD399D1DE4367000896C1F /* DLRadioButton */,
+				1ECD399A1DE4361D00896C1F /* ColorMode */,
+				1ECD39901DE434A300896C1F /* Dialogs */,
+				1ECD39931DE4353F00896C1F /* PhotoPicker */,
 				1ECD395E1DE42ED400896C1F /* AppDelegate.swift */,
 				1ECD39601DE42ED400896C1F /* ViewController.swift */,
 				1ECD39621DE42ED400896C1F /* Main.storyboard */,
 				1ECD39651DE42ED400896C1F /* Assets.xcassets */,
 				1ECD39671DE42ED400896C1F /* LaunchScreen.storyboard */,
 				1ECD396A1DE42ED400896C1F /* Info.plist */,
+				1ECD39911DE4353000896C1F /* SettingControler.swift */,
+				1ECD398C1DE432B700896C1F /* WelcomeUIViewControler.swift */,
+				1ECD399E1DE4368500896C1F /* ColorPicker-Bridging-Header.h */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -123,6 +158,53 @@
 				1ECD39801DE42ED400896C1F /* Info.plist */,
 			);
 			path = ColorPickerUITests;
+			sourceTree = "<group>";
+		};
+		1ECD39901DE434A300896C1F /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				1ECD39A91DE4383E00896C1F /* CustomIOSAlertView.h */,
+				1ECD39AA1DE4383E00896C1F /* CustomIOSAlertView.m */,
+				1ECD398E1DE4349700896C1F /* Alerdialog.swift */,
+			);
+			name = Dialogs;
+			sourceTree = "<group>";
+		};
+		1ECD39931DE4353F00896C1F /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				1ECD39A71DE4381500896C1F /* PhotoDialogUIVIew.swift */,
+				1ECD39961DE4358A00896C1F /* PhotoPickDialog.swift */,
+				1ECD39941DE4356700896C1F /* PhotoPicker.swift */,
+				1ECD39981DE435C500896C1F /* PhotoColorUIView.swift */,
+			);
+			name = PhotoPicker;
+			sourceTree = "<group>";
+		};
+		1ECD399A1DE4361D00896C1F /* ColorMode */ = {
+			isa = PBXGroup;
+			children = (
+				1ECD399B1DE4364D00896C1F /* ColorMode.swift */,
+			);
+			name = ColorMode;
+			sourceTree = "<group>";
+		};
+		1ECD399D1DE4367000896C1F /* DLRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				1ECD399F1DE4368500896C1F /* DLRadioButton.h */,
+				1ECD39A01DE4368500896C1F /* DLRadioButton.m */,
+			);
+			name = DLRadioButton;
+			sourceTree = "<group>";
+		};
+		1ECD39A41DE4377F00896C1F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1ECD39A21DE4375900896C1F /* PhotoLayer.swift */,
+				1ECD39A51DE437A800896C1F /* UIColor.swift */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +275,7 @@
 				TargetAttributes = {
 					1ECD395A1DE42ED400896C1F = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					1ECD396E1DE42ED400896C1F = {
@@ -259,8 +342,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ECD39A31DE4375900896C1F /* PhotoLayer.swift in Sources */,
+				1ECD39A61DE437A800896C1F /* UIColor.swift in Sources */,
 				1ECD39611DE42ED400896C1F /* ViewController.swift in Sources */,
+				1ECD39A11DE4368500896C1F /* DLRadioButton.m in Sources */,
+				1ECD398D1DE432B700896C1F /* WelcomeUIViewControler.swift in Sources */,
+				1ECD39951DE4356700896C1F /* PhotoPicker.swift in Sources */,
+				1ECD39991DE435C500896C1F /* PhotoColorUIView.swift in Sources */,
 				1ECD395F1DE42ED400896C1F /* AppDelegate.swift in Sources */,
+				1ECD39921DE4353000896C1F /* SettingControler.swift in Sources */,
+				1ECD39971DE4358A00896C1F /* PhotoPickDialog.swift in Sources */,
+				1ECD39AB1DE4383F00896C1F /* CustomIOSAlertView.m in Sources */,
+				1ECD398F1DE4349700896C1F /* Alerdialog.swift in Sources */,
+				1ECD399C1DE4364D00896C1F /* ColorMode.swift in Sources */,
+				1ECD39A81DE4381500896C1F /* PhotoDialogUIVIew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,10 +505,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ColorPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appforeceone.ColorPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColorPicker/ColorPicker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -422,10 +520,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ColorPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appforeceone.ColorPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColorPicker/ColorPicker-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

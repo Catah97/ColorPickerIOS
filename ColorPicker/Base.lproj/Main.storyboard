@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--WelcomeUI View Controler-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeUIViewControler" customModule="ColorPicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,77 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBF-zl-6Nv" userLabel="BtnMyColors">
+                                <rect key="frame" x="149" y="617" width="77" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="AlS-ZD-Fcf"/>
+                                    <constraint firstAttribute="height" constant="30" id="Etx-sY-fOM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0R-AO-ce2" userLabel="BtnPlus">
+                                <rect key="frame" x="157" y="303" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="87U-JR-XEk"/>
+                                    <constraint firstAttribute="width" constant="60" id="gK2-wZ-N3V"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="plus"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nt-nP-MQa">
+                                <rect key="frame" x="49" y="351" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="EnA-mK-85n"/>
+                                    <constraint firstAttribute="height" constant="60" id="rM7-vg-RfL"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="album"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-HE-inA" userLabel="BtnCamera">
+                                <rect key="frame" x="130" y="397" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="ShW-BP-Qu1"/>
+                                    <constraint firstAttribute="height" constant="60" id="pVd-s7-RNx"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="camera"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLe-9Q-Jc3" userLabel="BtnInternet">
+                                <rect key="frame" x="73" y="186" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8jk-Ue-DY7"/>
+                                    <constraint firstAttribute="width" constant="60" id="s69-In-Nti"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="internet"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="u0R-AO-ce2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0Mq-hv-5j5"/>
+                            <constraint firstItem="u0R-AO-ce2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9w2-j1-IfJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PBF-zl-6Nv" secondAttribute="bottom" constant="20" id="Be4-Ca-jNG"/>
+                            <constraint firstItem="PBF-zl-6Nv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wqQ-5x-ov0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnAlbum" destination="3nt-nP-MQa" id="1ld-fV-YiL"/>
+                        <outlet property="btnCamera" destination="T8b-HE-inA" id="krA-Bh-ODx"/>
+                        <outlet property="btnInternet" destination="uLe-9Q-Jc3" id="huQ-aW-pKC"/>
+                        <outlet property="plusBtn" destination="u0R-AO-ce2" id="PKS-az-Rug"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="album" width="192" height="192"/>
+        <image name="camera" width="192" height="192"/>
+        <image name="internet" width="192" height="192"/>
+        <image name="plus" width="552" height="552"/>
+    </resources>
 </document>
