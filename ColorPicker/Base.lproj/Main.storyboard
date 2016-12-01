@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,6 +25,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fW-Zm-4am" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-769" y="139"/>
+        </scene>
+        <!--Setting Controler-->
+        <scene sceneID="D43-FI-nE7">
+            <objects>
+                <viewController storyboardIdentifier="SettingControler" id="JdE-yR-1B3" customClass="SettingControler" customModule="ColorPicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xqi-jc-ufv"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Ao-AG-4IL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FSC-nN-mOA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zvolte barevný model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kr-uW-9uc">
+                                <rect key="frame" x="16" y="28" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94H-eI-511" customClass="DLRadioButton">
+                                <rect key="frame" x="16" y="57" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5kr-uW-9uc" firstAttribute="leading" secondItem="FSC-nN-mOA" secondAttribute="leadingMargin" id="1UO-aJ-6XN"/>
+                            <constraint firstItem="5kr-uW-9uc" firstAttribute="top" secondItem="Xqi-jc-ufv" secondAttribute="bottom" constant="8" id="KUg-6Q-e4U"/>
+                            <constraint firstItem="94H-eI-511" firstAttribute="top" secondItem="5kr-uW-9uc" secondAttribute="bottom" constant="8" id="MtV-Am-O4F"/>
+                            <constraint firstItem="94H-eI-511" firstAttribute="leading" secondItem="FSC-nN-mOA" secondAttribute="leadingMargin" id="Qpt-gZ-uB0"/>
+                            <constraint firstItem="5kr-uW-9uc" firstAttribute="trailing" secondItem="FSC-nN-mOA" secondAttribute="trailingMargin" id="xMu-Or-BwQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZdX-Z9-qkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="-528.16901408450701"/>
         </scene>
         <!--WelcomeUI View Controler-->
         <scene sceneID="tne-QT-ifu">
@@ -140,7 +183,6 @@
                                         <rect key="frame" x="33" y="43" width="240" height="181"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="njd-XC-gvJ" secondAttribute="trailing" constant="-1" id="eYE-k7-Nsg"/>
                                     <constraint firstItem="njd-XC-gvJ" firstAttribute="leading" secondItem="QzT-kF-hMb" secondAttribute="leading" constant="60" id="icQ-Ou-eA0"/>
