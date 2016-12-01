@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E5BBEBA1DED6A6A0089785B /* UIColorBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BBEB91DED6A6A0089785B /* UIColorBorderView.swift */; };
 		1ECD395F1DE42ED400896C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD395E1DE42ED400896C1F /* AppDelegate.swift */; };
 		1ECD39611DE42ED400896C1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39601DE42ED400896C1F /* ViewController.swift */; };
 		1ECD39641DE42ED400896C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECD39621DE42ED400896C1F /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E5BBEB91DED6A6A0089785B /* UIColorBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorBorderView.swift; sourceTree = "<group>"; };
 		1ECD395B1DE42ED400896C1F /* ColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECD395E1DE42ED400896C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ECD39601DE42ED400896C1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				1ECD39A21DE4375900896C1F /* PhotoLayer.swift */,
 				1ECD39A51DE437A800896C1F /* UIColor.swift */,
+				1E5BBEB91DED6A6A0089785B /* UIColorBorderView.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				1ECD398D1DE432B700896C1F /* WelcomeUIViewControler.swift in Sources */,
 				1ECD39951DE4356700896C1F /* PhotoPicker.swift in Sources */,
 				1ECD39991DE435C500896C1F /* PhotoColorUIView.swift in Sources */,
+				1E5BBEBA1DED6A6A0089785B /* UIColorBorderView.swift in Sources */,
 				1ECD395F1DE42ED400896C1F /* AppDelegate.swift in Sources */,
 				1ECD39921DE4353000896C1F /* SettingControler.swift in Sources */,
 				1ECD39971DE4358A00896C1F /* PhotoPickDialog.swift in Sources */,
@@ -603,6 +607,7 @@
 				1ECD39851DE42ED400896C1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1ECD39861DE42ED400896C1F /* Build configuration list for PBXNativeTarget "ColorPickerTests" */ = {
 			isa = XCConfigurationList;
@@ -611,6 +616,7 @@
 				1ECD39881DE42ED400896C1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1ECD39891DE42ED400896C1F /* Build configuration list for PBXNativeTarget "ColorPickerUITests" */ = {
 			isa = XCConfigurationList;
@@ -619,6 +625,7 @@
 				1ECD398B1DE42ED400896C1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
