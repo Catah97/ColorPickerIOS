@@ -8,6 +8,9 @@
 
 import UIKit
 
+public protocol PhotoDialogDelegate {
+    func onOkClick(colorName : String, color : UIColor, mainColorMode : Int)
+}
 
 @IBDesignable class PhotoDialogUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, CustomIOSAlertViewDelegate {
     
@@ -21,10 +24,13 @@ import UIKit
     @IBOutlet weak var colorPrevie: UIView!
     
     @IBOutlet weak var photoColor: PhotoColorUIView!
+    
+    var delegate : PhotoDialogDelegate!
 
     
-    init(frame: CGRect, color: UIColor) {
+    init(frame: CGRect, color: UIColor, delegate: PhotoDialogDelegate) {
         super.init(frame: frame)
+        self.delegate = delegate
         setup()
         firstSettingValue = SettingControler.colorMode()
         self.color = color
@@ -97,8 +103,28 @@ import UIKit
     }
     
     func onButtonClick(_ alertView: Any!, clickedButtonAt buttonIndex: Int) {
+        if buttonIndex == 0 {
+            onOkClick()
+        }
         SettingControler.colorMode(value: firstSettingValue)
         let dialog : CustomIOSAlertView = alertView as! CustomIOSAlertView
         dialog.close()
     }
+    
+    func onOkClick() {
+        let colorName = self.colorNameCreator()
+        let color = colorPrevie.backgroundColor
+        let colorMode = SettingControler.colorMode()
+        self.delegate.onOkClick(colorName: colorName, color: color!, mainColorMode: colorMode)
+        
+    }
+    
+    func colorNameCreator() -> String {
+        var result = self.colorName.text
+        if result?.characters.count == 0 {
+            result = "My color";
+        }
+        return result!
+    }
+    
 }

@@ -244,6 +244,9 @@
                                                         <state key="normal" title="Pick!">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="onPick" destination="hoW-zg-S6e" eventType="touchUpInside" id="qey-0t-dKg"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -346,6 +349,9 @@
                                                         <state key="normal" title="Pick!">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="onPick" destination="hoW-zg-S6e" eventType="touchUpInside" id="Fwz-xs-azf"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -432,6 +438,9 @@
                                                         <state key="normal" title="Pick!">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="onPick" destination="hoW-zg-S6e" eventType="touchUpInside" id="voQ-Sx-hcV"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -546,6 +555,9 @@ Hx/CsA
                                                         <state key="normal" title="Pick!">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="onPick" destination="hoW-zg-S6e" eventType="touchUpInside" id="OCI-Rf-MIu"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>

@@ -9,7 +9,8 @@
 import UIKit
 import QuartzCore
 
-class PhotoPicker: UIViewController, UIScrollViewDelegate {
+class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
+
     
     
     @IBOutlet weak var imgPhoto: UIImageView!
@@ -26,7 +27,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate {
     var isSetted : Bool = false
     
     @IBAction func onPick(){
-        PhotoPickDialog.showUiAlert(color: lastColor ,controler: self)
+        PhotoPickDialog.showUiAlert(color: lastColor, delegate: self ,controler: self)
     }
     
     @IBAction func doubleTap(_ recognizer: UITapGestureRecognizer) {
@@ -250,6 +251,10 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    func onOkClick(colorName: String, color: UIColor, mainColorMode: Int) {
+        print("colorName is: " + colorName)
+        print(mainColorMode)
+    }
     
-    
+
 }

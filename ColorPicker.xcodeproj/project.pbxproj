@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E1CB2D41DF0D06D0012AFC5 /* PhotoDialogUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E1CB2D31DF0D06D0012AFC5 /* PhotoDialogUIView.xib */; };
 		1E5BBEBA1DED6A6A0089785B /* UIColorBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BBEB91DED6A6A0089785B /* UIColorBorderView.swift */; };
 		1ECD395F1DE42ED400896C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD395E1DE42ED400896C1F /* AppDelegate.swift */; };
 		1ECD39611DE42ED400896C1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39601DE42ED400896C1F /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E1CB2D31DF0D06D0012AFC5 /* PhotoDialogUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoDialogUIView.xib; sourceTree = "<group>"; };
 		1E5BBEB91DED6A6A0089785B /* UIColorBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorBorderView.swift; sourceTree = "<group>"; };
 		1ECD395B1DE42ED400896C1F /* ColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECD395E1DE42ED400896C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		1ECD39931DE4353F00896C1F /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				1E1CB2D31DF0D06D0012AFC5 /* PhotoDialogUIView.xib */,
 				1ECD39A71DE4381500896C1F /* PhotoDialogUIVIew.swift */,
 				1ECD39961DE4358A00896C1F /* PhotoPickDialog.swift */,
 				1ECD39941DE4356700896C1F /* PhotoPicker.swift */,
@@ -319,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ECD39691DE42ED400896C1F /* LaunchScreen.storyboard in Resources */,
+				1E1CB2D41DF0D06D0012AFC5 /* PhotoDialogUIView.xib in Resources */,
 				1ECD39661DE42ED400896C1F /* Assets.xcassets in Resources */,
 				1ECD39641DE42ED400896C1F /* Main.storyboard in Resources */,
 			);

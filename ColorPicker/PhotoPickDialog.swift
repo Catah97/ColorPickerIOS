@@ -10,9 +10,9 @@ import UIKit
 
 class PhotoPickDialog {
     
-    open static func showUiAlert(color: UIColor, controler : UIViewController) {
+    open static func showUiAlert(color: UIColor, delegate : PhotoDialogDelegate, controler : UIViewController) {
         let customAlerView = CustomIOSAlertView()
-        let photoDialogUIView = photoPickView(color: color)
+        let photoDialogUIView = photoPickView(color: color, delegate: delegate)
         customAlerView?.containerView = photoDialogUIView as UIView
         customAlerView?.buttonTitles = ["Ok", "Zrušit"]
         customAlerView?.delegate = photoDialogUIView
@@ -44,9 +44,9 @@ class PhotoPickDialog {
         print("pick " + alert.title!)
     }
     
-    static func photoPickView(color: UIColor) -> PhotoDialogUIView{
+    static func photoPickView(color: UIColor, delegate : PhotoDialogDelegate) -> PhotoDialogUIView{
         let frame = CGRect(x: 0, y: 0, width: 300, height: 200)
-        let pickView = PhotoDialogUIView(frame: frame, color: color)
+        let pickView = PhotoDialogUIView(frame: frame, color: color, delegate: delegate)
         return pickView
     }
 }
