@@ -10,26 +10,26 @@ import UIKit
 
 class PhotoColorUIView: UIView {
     
-    @IBOutlet weak var RGBmodel: UIStackView!
+    @IBOutlet weak var RGBmodel: UIView!
 
     @IBOutlet weak var rgbR: UILabel!
     @IBOutlet weak var rgbG: UILabel!
     @IBOutlet weak var rgbB: UILabel!
 
-    @IBOutlet weak var HEXmodel: UIStackView!
+    @IBOutlet weak var HEXmodel: UIView!
     
     @IBOutlet weak var hexR: UILabel!
     @IBOutlet weak var hexG: UILabel!
     @IBOutlet weak var hexB: UILabel!
 
-    @IBOutlet weak var CMYKmodel: UIStackView!
+    @IBOutlet weak var CMYKmodel: UIView!
     
     @IBOutlet weak var cmykC: UILabel!
     @IBOutlet weak var cmykM: UILabel!
     @IBOutlet weak var cmykY: UILabel!
     @IBOutlet weak var cmykK: UILabel!
     
-    @IBOutlet weak var HSVmodel: UIStackView!
+    @IBOutlet weak var HSVmodel: UIView!
     
     @IBOutlet weak var hsvH: UILabel!
     @IBOutlet weak var hsvS: UILabel!
@@ -70,6 +70,7 @@ class PhotoColorUIView: UIView {
         HEXmodel.isHidden = true
         CMYKmodel.isHidden = true
         HSVmodel.isHidden = true
+        print(colorMode)
         switch colorMode {
         case .RGB:
             RGBmodel.isHidden = false

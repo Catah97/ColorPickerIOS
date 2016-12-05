@@ -39,7 +39,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             else {
                 //(I divide by 3.0 since I don't wan't to zoom to the max upon the double tap)
                 let zoomRect = self.zoomRectForScale(scale: scrollV.maximumZoomScale, center: recognizer.location(in: recognizer.view))
-                self.scrollView?.zoom(to: zoomRect, animated: true)
+                scrollV.zoom(to: zoomRect, animated: true)
             }
         }
     }
@@ -49,7 +49,8 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         if let scrollView = self.scrollView {
             zoomRect.size.height = scrollView.frame.size.height / scale;
             zoomRect.size.width  = scrollView.frame.size.width  / scale;
-            let newCenter = scrollView.convert(center, from: self.scrollView)
+            let newCenter = imgPhoto.convert(center, from: self.scrollView)
+            print(newCenter)
             zoomRect.origin.x = newCenter.x - ((zoomRect.size.width / 2.0));
             zoomRect.origin.y = newCenter.y - ((zoomRect.size.height / 2.0));
         }
