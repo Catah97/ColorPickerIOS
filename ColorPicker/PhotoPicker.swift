@@ -123,8 +123,10 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     
     func addNavigationBtn() {
         let item = UIBarButtonItem(image: UIImage(named: "menuSmall"), style: .plain, target: self, action: #selector(PhotoPicker.optionMenuClick))
-        self.navigationItem.title = "Color Picker"
+        item.tintColor = UIColor.darkText
         self.navigationItem.rightBarButtonItem = item
+        self.navigationItem.title = "Color Picker"
+
     }
     
     
