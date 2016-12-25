@@ -135,27 +135,26 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     }
     
     func showOptionDialog()  {
-        let myActionSheet = UIAlertController(title: "Možnoti", message: "Zvolte jednu z možností", preferredStyle: .actionSheet)
+        let myActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        myActionSheet.view.tintColor = UIColor.darkText
+        //myActionSheet.setValue(attributedString, forKey: "attributedMessage")
         
-        // blue action button
         let turnLeftAction = UIAlertAction(title: "Otočit doleva", style: .default) { (action) in
             self.rotateImage(rotateRight: false)
         }
         
-        // red action button
         let turnRightAction = UIAlertAction(title: "Otočit doprava", style: .default) { (action) in
             self.rotateImage(rotateRight: true)
             
         }
         
-        // yellow action button
         let lupaAction = UIAlertAction(title: "Lupa", style: .default) { (action) in
         }
         
-        // cancel action button
         let settingAction = UIAlertAction(title: "Nastavení", style: .default) { (action) in
             self.showSetting()
         }
+        settingAction.setValue(UIImage(named: "setting"), forKey: "image")
         
         let myColorsAction = UIAlertAction(title: "Moje barvy", style: .default) { (action) in
             self.showMyColors()

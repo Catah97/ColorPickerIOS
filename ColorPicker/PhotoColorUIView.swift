@@ -10,6 +10,8 @@ import UIKit
 
 class PhotoColorUIView: UIView {
     
+    
+    
     @IBOutlet weak var RGBmodel: UIView!
 
     @IBOutlet weak var rgbR: UILabel!
@@ -21,6 +23,9 @@ class PhotoColorUIView: UIView {
     @IBOutlet weak var hexR: UILabel!
     @IBOutlet weak var hexG: UILabel!
     @IBOutlet weak var hexB: UILabel!
+    
+    @IBOutlet weak var hexText: UILabel!
+
 
     @IBOutlet weak var CMYKmodel: UIView!
     
@@ -36,6 +41,7 @@ class PhotoColorUIView: UIView {
     @IBOutlet weak var hsvV: UILabel!
 
     
+    
     public func onColorChange(color: UIColor){
         onColorChangeWithoutChangeBackGround(color: color)
         self.backgroundColor = color
@@ -44,19 +50,10 @@ class PhotoColorUIView: UIView {
     public func onColorChangeWithoutChangeBackGround(color: UIColor){
         let colorMode = self.colorMode()
         showRightView(colorMode: colorMode)
-        let myColorComponents = color.components
-        let alpha = myColorComponents.alpha * 255
-        let red = myColorComponents.red * 255
-        let green = myColorComponents.green * 255
-        let blue = myColorComponents.blue * 255
-        let alphaRounded = Int(round(alpha))
-        let redRounded = Int(round(red))
-        let greenRounded = Int(round(green))
-        let blueRounded = Int(round(blue))
-        setRGB(alpha: alphaRounded, red: redRounded, green: greenRounded, blue: blueRounded)
-        setHEX(alpha: alphaRounded, red: redRounded, green: greenRounded, blue: blueRounded)
-        setCMYK(alpha: alphaRounded, red: redRounded, green: greenRounded, blue: blueRounded)
-        setHSV(alpha: alphaRounded, red: redRounded, green: greenRounded, blue: blueRounded)
+        setRGB(color : color)
+        setHEX(color : color)
+        setCMYK(color : color)
+        setHSV(color : color)
     }
     
     private func colorMode() -> ColorMode{
@@ -83,31 +80,33 @@ class PhotoColorUIView: UIView {
         }
     }
     
-    private func setRGB(alpha: Int, red: Int, green: Int, blue:Int) {
-        let rgb = ColorMode.rgb(alpha: alpha, red: red, green: green, blue: blue)
+    private func setRGB(color : UIColor) {
+        let rgb = ColorMode.rgb(color : color)
         self.rgbR.text = rgb.red
         self.rgbG.text = rgb.green
         self.rgbB.text = rgb.blue
     }
     
-    private func setHEX(alpha: Int, red: Int, green: Int, blue:Int){
-        let hex = ColorMode.hex(alpha: alpha, red: red, green: green, blue: blue)
+    private func setHEX(color : UIColor){
+        let hex = ColorMode.hex(color : color)
         self.hexR.text = hex.red
         self.hexG.text = hex.green
         self.hexB.text = hex.blue
-    
+        if let hexText = self.hexText {
+            hexText.text = hex.result
+        }
     }
     
-    private func setCMYK(alpha: Int, red: Int, green: Int, blue:Int) {
-        let cmyk = ColorMode.cmyk(alpha: alpha, red: red, green: green, blue: blue)
+    private func setCMYK(color : UIColor) {
+        let cmyk = ColorMode.cmyk(color: color)
         self.cmykC.text = cmyk.c
         self.cmykM.text = cmyk.m
         self.cmykY.text = cmyk.y
         self.cmykK.text = cmyk.k
     }
 
-    private func setHSV(alpha: Int, red: Int, green: Int, blue:Int) {
-        let hsv = ColorMode.hsv(alpha: alpha, red: red, green: green, blue: blue)
+    private func setHSV(color : UIColor) {
+        let hsv = ColorMode.hsv(color: color)
         self.hsvH.text = hsv.h
         self.hsvS.text = hsv.s
         self.hsvV.text = hsv.v

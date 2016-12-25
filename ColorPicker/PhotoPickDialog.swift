@@ -17,6 +17,7 @@ class PhotoPickDialog {
         customAlerView?.buttonTitles = ["Ok", "Zrušit"]
         customAlerView?.delegate = photoDialogUIView
         customAlerView?.useMotionEffects = true
+        customAlerView?.isButtonsVisible = true;
         customAlerView?.show()
         
         /*customAlerView

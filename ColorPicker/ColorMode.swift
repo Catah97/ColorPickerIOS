@@ -28,6 +28,37 @@ enum ColorMode{
     
     public static var colorModes = ["RGB", "HEX", "CMYK", "HSV"]
     
+    public static func createColorValues(color : UIColor, colorMode : ColorMode) -> String {
+        switch colorMode {
+        case .RGB:
+            return rgb(color: color).result
+        case .HEX:
+            return hex(color: color).result
+        case .CMYK:
+            return cmyk(color: color).result
+        default:
+            return hsv(color: color).result
+        }
+    }
+    
+    public static func components(color: UIColor) -> (alpha: Int, red: Int, green: Int, blue: Int) {
+        let myColorComponents = color.components
+        let alpha = myColorComponents.alpha * 255
+        let red = myColorComponents.red * 255
+        let green = myColorComponents.green * 255
+        let blue = myColorComponents.blue * 255
+        let alphaRounded = Int(round(alpha))
+        let redRounded = Int(round(red))
+        let greenRounded = Int(round(green))
+        let blueRounded = Int(round(blue))
+        return (alphaRounded, redRounded, greenRounded, blueRounded)
+        }
+    
+    public static func rgb(color: UIColor) -> (result: String, alpha: String, red: String, green: String, blue: String) {
+        let components = self.components(color: color)
+        return rgb(alpha: components.alpha, red: components.red, green: components.green, blue: components.blue)
+    }
+    
     public static func rgb(alpha: Int, red: Int, green: Int, blue: Int) -> (result: String, alpha: String, red: String, green: String, blue: String) {
         let rgbA = String(describing: alpha)
         let rgbR = String(describing: red)
@@ -35,6 +66,11 @@ enum ColorMode{
         let rgbB = String(describing: blue)
         let result = "R: " + String(describing: red) + " G: " + String(describing: green) + " B: " + String(describing: blue)
         return (result, rgbA, rgbR, rgbG, rgbB)
+    }
+    
+    public static func hex(color: UIColor) -> (result: String, alpha: String, red: String, green: String, blue: String) {
+        let components = self.components(color: color)
+        return hex(alpha: components.alpha, red: components.red, green: components.green, blue: components.blue)
     }
     
     public static func hex(alpha: Int, red: Int, green: Int, blue: Int) -> (result: String, alpha: String, red: String, green: String, blue: String) {
@@ -53,6 +89,11 @@ enum ColorMode{
             return "0" + val
         }
         return val;
+    }
+    
+    public static func cmyk(color: UIColor) -> (result: String, c: String, m: String, y: String, k: String) {
+        let components = self.components(color: color)
+        return cmyk(alpha: components.alpha, red: components.red, green: components.green, blue: components.blue)
     }
     
     public static func cmyk(alpha: Int, red: Int, green: Int, blue: Int) -> (result: String, c: String, m: String, y: String, k: String) {
@@ -80,14 +121,9 @@ enum ColorMode{
         return (result, cmykC, cmykM, cmyky, cmykK)
     }
     
-    
-
-    
-    private static func roundColorMode(value: Double) -> Double{
-        var result = value * 1000;
-        result = round(result)
-        result = result / 1000
-        return result;
+    public static func hsv(color: UIColor) -> (result: String, h: String, s: String, v: String) {
+        let components = self.components(color: color)
+        return hsv(alpha: components.alpha, red: components.red, green: components.green, blue: components.blue)
     }
     
     public static func hsv(alpha: Int, red: Int, green: Int, blue: Int) -> (result: String, h: String, s: String, v: String) {
@@ -137,6 +173,13 @@ enum ColorMode{
         let result = "H: " + hsvH + " M: " + hsvS
             + " Y: " + hsvV
         return (result, hsvH, hsvS, hsvV)
+    }
+    
+    private static func roundColorMode(value: Double) -> Double{
+        var result = value * 1000;
+        result = round(result)
+        result = result / 1000
+        return result;
     }
 
 }
