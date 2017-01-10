@@ -13,10 +13,5 @@ class MyColorCell : UITableViewCell{
     @IBOutlet weak var colorExample: UIView!
     @IBOutlet weak var colorName: UILabel!
     @IBOutlet weak var colorValue: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ColorMode{
+public enum ColorMode{
     case RGB, HEX, CMYK, HSV
     
     public static func colorMode(value : Int) -> ColorMode {

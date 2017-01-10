@@ -6,7 +6,7 @@
 //  Copyright © 2016 Martin Beran. All rights reserved.
 //
 
-class MyColor{
+public class MyColor{
     
     public var color : UIColor
     public var colorName : String

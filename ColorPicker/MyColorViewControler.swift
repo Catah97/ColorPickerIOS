@@ -38,8 +38,9 @@ class MyColorViewControler : UITableViewController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tableView selected", indexPath.row)
-        MyColorDialog.showUiAlert(myColor: MyColor(color: UIColor.blue, colorName: "Ahoj", colorMode: ColorMode.HEX),
-                                  controler: self)
+        let position = indexPath.row;
+        let color = colors[position]
+        MyColorDialog.showUiAlert(myColor: color , controler: self)
     }
     
 }
