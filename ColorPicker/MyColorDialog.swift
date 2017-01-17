@@ -28,12 +28,14 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
     var view : UIView!
     var firstSettingValue : Int!
     var myColor : MyColor!
+    var delegate : MyColorDialogDelegate!
 
     
-    init(frame: CGRect, myColor: MyColor, parrent : CustomIOSAlertView) {
+    init(frame: CGRect, myColor: MyColor, parrent : CustomIOSAlertView, delegate : MyColorDialogDelegate) {
         super.init(frame: frame)
         self.myColor = myColor
         self.parrent = parrent;
+        self.delegate = delegate
         setMainColor()
         setup()
         setItems()
@@ -103,22 +105,26 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        print("Table selected")
-        print(indexPath.row)
+        let position = indexPath.row
+        if position > 0 {
+            let colorMode = modes[position]
+            delegate.tableView(selectedColorMode: colorMode, myColor: self.myColor)
+            parrent.close()
+        }
     }
     
-    open static func showUiAlert(myColor: MyColor, controler : UIViewController) {
+    open static func showUiAlert(myColor: MyColor, controler : UIViewController, delegate : MyColorDialogDelegate) {
         let customAlerView = CustomIOSAlertView()
-        let myColorView = myColorDialog(myColor: myColor, parrent: customAlerView!)
+        let myColorView = myColorDialog(myColor: myColor, parrent: customAlerView!, delegate: delegate)
         customAlerView?.containerView = myColorView as UIView
         customAlerView?.useMotionEffects = true
         customAlerView?.buttonTitles = nil
         customAlerView?.show()
     }
     
-    static func myColorDialog(myColor: MyColor, parrent : CustomIOSAlertView) -> MyColorDialog{
+    static func myColorDialog(myColor: MyColor, parrent : CustomIOSAlertView, delegate : MyColorDialogDelegate) -> MyColorDialog{
         let frame = CGRect(x: 0, y: 0, width: 300, height: 350)
-        let pickView = MyColorDialog(frame: frame, myColor: myColor, parrent : parrent)
+        let pickView = MyColorDialog(frame: frame, myColor: myColor, parrent : parrent, delegate : delegate)
         return pickView
     }
 

@@ -20,7 +20,6 @@
 		1ECD39691DE42ED400896C1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECD39671DE42ED400896C1F /* LaunchScreen.storyboard */; };
 		1ECD39741DE42ED400896C1F /* ColorPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39731DE42ED400896C1F /* ColorPickerTests.swift */; };
 		1ECD397F1DE42ED400896C1F /* ColorPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD397E1DE42ED400896C1F /* ColorPickerUITests.swift */; };
-		1ECD398D1DE432B700896C1F /* WelcomeUIViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD398C1DE432B700896C1F /* WelcomeUIViewControler.swift */; };
 		1ECD398F1DE4349700896C1F /* Alerdialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD398E1DE4349700896C1F /* Alerdialog.swift */; };
 		1ECD39921DE4353000896C1F /* SettingControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39911DE4353000896C1F /* SettingControler.swift */; };
 		1ECD39951DE4356700896C1F /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39941DE4356700896C1F /* PhotoPicker.swift */; };
@@ -32,6 +31,8 @@
 		1ECD39A61DE437A800896C1F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39A51DE437A800896C1F /* UIColor.swift */; };
 		1ECD39A81DE4381500896C1F /* PhotoDialogUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39A71DE4381500896C1F /* PhotoDialogUIVIew.swift */; };
 		1ECD39AB1DE4383F00896C1F /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39AA1DE4383E00896C1F /* CustomIOSAlertView.m */; };
+		1ED1A1631E2E53A1007D0676 /* WelcomeUIViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1A1621E2E53A1007D0676 /* WelcomeUIViewControler.swift */; };
+		1ED1A1661E2E54B9007D0676 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1A1651E2E54B9007D0676 /* DBManager.swift */; };
 		1EDB36281DFCC496000CC7E9 /* MyColorViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB36271DFCC496000CC7E9 /* MyColorViewControler.swift */; };
 		1EDB362A1DFCC4DC000CC7E9 /* MyColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB36291DFCC4DC000CC7E9 /* MyColorCell.swift */; };
 /* End PBXBuildFile section */
@@ -73,7 +74,6 @@
 		1ECD397A1DE42ED400896C1F /* ColorPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECD397E1DE42ED400896C1F /* ColorPickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerUITests.swift; sourceTree = "<group>"; };
 		1ECD39801DE42ED400896C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1ECD398C1DE432B700896C1F /* WelcomeUIViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeUIViewControler.swift; path = ../../ColorPickerOld/ColorPicker/WelcomeUIViewControler.swift; sourceTree = "<group>"; };
 		1ECD398E1DE4349700896C1F /* Alerdialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerdialog.swift; sourceTree = "<group>"; };
 		1ECD39911DE4353000896C1F /* SettingControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingControler.swift; sourceTree = "<group>"; };
 		1ECD39941DE4356700896C1F /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
@@ -88,6 +88,8 @@
 		1ECD39A71DE4381500896C1F /* PhotoDialogUIVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDialogUIVIew.swift; sourceTree = "<group>"; };
 		1ECD39A91DE4383E00896C1F /* CustomIOSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOSAlertView.h; sourceTree = "<group>"; };
 		1ECD39AA1DE4383E00896C1F /* CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOSAlertView.m; sourceTree = "<group>"; };
+		1ED1A1621E2E53A1007D0676 /* WelcomeUIViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeUIViewControler.swift; sourceTree = "<group>"; };
+		1ED1A1651E2E54B9007D0676 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		1EDB36271DFCC496000CC7E9 /* MyColorViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorViewControler.swift; sourceTree = "<group>"; };
 		1EDB36291DFCC4DC000CC7E9 /* MyColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 		1ECD395D1DE42ED400896C1F /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
+				1ED1A1641E2E5435007D0676 /* Database */,
 				1EDB36261DFCC479000CC7E9 /* MyColors */,
 				1ECD39A41DE4377F00896C1F /* Extension */,
 				1ECD399D1DE4367000896C1F /* DLRadioButton */,
@@ -153,7 +156,7 @@
 				1ECD39671DE42ED400896C1F /* LaunchScreen.storyboard */,
 				1ECD396A1DE42ED400896C1F /* Info.plist */,
 				1ECD39911DE4353000896C1F /* SettingControler.swift */,
-				1ECD398C1DE432B700896C1F /* WelcomeUIViewControler.swift */,
+				1ED1A1621E2E53A1007D0676 /* WelcomeUIViewControler.swift */,
 				1ECD399E1DE4368500896C1F /* ColorPicker-Bridging-Header.h */,
 			);
 			path = ColorPicker;
@@ -224,6 +227,14 @@
 				1E5BBEB91DED6A6A0089785B /* UIColorBorderView.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		1ED1A1641E2E5435007D0676 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1ED1A1651E2E54B9007D0676 /* DBManager.swift */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		1EDB36261DFCC479000CC7E9 /* MyColors */ = {
@@ -383,18 +394,19 @@
 				1ECD39611DE42ED400896C1F /* ViewController.swift in Sources */,
 				1EBCD4E71E09417C008E0E6F /* MyColor.swift in Sources */,
 				1ECD39A11DE4368500896C1F /* DLRadioButton.m in Sources */,
-				1ECD398D1DE432B700896C1F /* WelcomeUIViewControler.swift in Sources */,
 				1ECD39951DE4356700896C1F /* PhotoPicker.swift in Sources */,
 				1ECD39991DE435C500896C1F /* PhotoColorUIView.swift in Sources */,
 				1E5BBEBA1DED6A6A0089785B /* UIColorBorderView.swift in Sources */,
 				1ECD395F1DE42ED400896C1F /* AppDelegate.swift in Sources */,
 				1ECD39921DE4353000896C1F /* SettingControler.swift in Sources */,
 				1ECD39971DE4358A00896C1F /* PhotoPickDialog.swift in Sources */,
+				1ED1A1661E2E54B9007D0676 /* DBManager.swift in Sources */,
 				1ECD39AB1DE4383F00896C1F /* CustomIOSAlertView.m in Sources */,
 				1ECD398F1DE4349700896C1F /* Alerdialog.swift in Sources */,
 				1EDB36281DFCC496000CC7E9 /* MyColorViewControler.swift in Sources */,
 				1EBCD4E31E09184C008E0E6F /* MyColorDialog.swift in Sources */,
 				1ECD399C1DE4364D00896C1F /* ColorMode.swift in Sources */,
+				1ED1A1631E2E53A1007D0676 /* WelcomeUIViewControler.swift in Sources */,
 				1ECD39A81DE4381500896C1F /* PhotoDialogUIVIew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

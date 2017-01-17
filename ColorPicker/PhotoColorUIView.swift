@@ -67,7 +67,6 @@ class PhotoColorUIView: UIView {
         HEXmodel.isHidden = true
         CMYKmodel.isHidden = true
         HSVmodel.isHidden = true
-        print(colorMode)
         switch colorMode {
         case .RGB:
             RGBmodel.isHidden = false

@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol PhotoDialogDelegate {
-    func onOkClick(colorName : String, color : UIColor, mainColorMode : Int)
+    func onOkClick(colorName : String, color : UIColor, mainColorMode : ColorMode)
 }
 
 @IBDesignable class PhotoDialogUIView: UIView, UIPickerViewDelegate, UIPickerViewDataSource, CustomIOSAlertViewDelegate {
@@ -114,7 +114,7 @@ public protocol PhotoDialogDelegate {
     func onOkClick() {
         let colorName = self.colorNameCreator()
         let color = colorPrevie.backgroundColor
-        let colorMode = SettingControler.colorMode()
+        let colorMode = ColorMode.colorMode(value: SettingControler.colorMode())
         self.delegate.onOkClick(colorName: colorName, color: color!, mainColorMode: colorMode)
         
     }

@@ -8,16 +8,15 @@
 
 import UIKit
 
-class MyColorViewControler : UITableViewController{
+class MyColorViewControler : UITableViewController, MyColorDialogDelegate{
     
-    var colors = [MyColor(color: UIColor.black, colorName: "cerna",colorMode: ColorMode.RGB),
-                 MyColor(color: UIColor.blue, colorName: "modra",colorMode: ColorMode.CMYK),
-                 MyColor(color: UIColor.yellow, colorName: "zluta",colorMode: ColorMode.HEX),
-                 MyColor(color: UIColor.green, colorName: "zelena",colorMode: ColorMode.HSV)]
-
+    var db : DBManager!
+    var colors : Array<MyColor> = Array()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = DBManager()
+        getData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,7 +39,29 @@ class MyColorViewControler : UITableViewController{
         print("tableView selected", indexPath.row)
         let position = indexPath.row;
         let color = colors[position]
-        MyColorDialog.showUiAlert(myColor: color , controler: self)
+        MyColorDialog.showUiAlert(myColor: color , controler: self, delegate: self)
     }
     
+    func tableView(selectedColorMode: ColorMode, myColor: MyColor) {
+        db.updateMainColorMode(selectedColorMode: selectedColorMode, myColor: myColor)
+        getData()
+        tableView.reloadData()
+    }
+    
+    private func getData(){
+        do{
+            colors = try db.getData();
+        }
+        catch let ex{
+            print(ex)
+            showGetDataError()
+        }
+    }
+    
+    private func showGetDataError(){
+        let erroSheet = UIAlertController(title: "Chyba", message: "Data se nepodařilo načíst", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title : "Ok", style : .cancel) { (action) in}
+        erroSheet.addAction(cancelAction)
+        self.present(erroSheet, animated: true, completion: nil)
+    }
 }

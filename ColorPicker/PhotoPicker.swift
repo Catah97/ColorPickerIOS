@@ -25,6 +25,8 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     var lastZoomScale: CGFloat = -1
     var lastColor : UIColor = UIColor.white
     var isSetted : Bool = false
+    var isLupaOn : Bool = false
+    var db : DBManager!
     
     @IBAction func onPick(){
         PhotoPickDialog.showUiAlert(color: lastColor, delegate: self ,controler: self)
@@ -32,7 +34,6 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     
     @IBAction func doubleTap(_ recognizer: UITapGestureRecognizer) {
         if let scrollV = self.scrollView {
-            print(scrollV)
             if (scrollV.zoomScale > scrollV.minimumZoomScale) {
                 scrollV.setZoomScale(scrollV.minimumZoomScale, animated: true)
             }
@@ -50,7 +51,6 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             zoomRect.size.height = scrollView.frame.size.height / scale;
             zoomRect.size.width  = scrollView.frame.size.width  / scale;
             let newCenter = imgPhoto.convert(center, from: self.scrollView)
-            print(newCenter)
             zoomRect.origin.x = newCenter.x - ((zoomRect.size.width / 2.0));
             zoomRect.origin.y = newCenter.y - ((zoomRect.size.height / 2.0));
         }
@@ -105,6 +105,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.db = DBManager()
         onColorChange()
     }
     
@@ -147,8 +148,10 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             self.rotateImage(rotateRight: true)
             
         }
-        
-        let lupaAction = UIAlertAction(title: "Lupa", style: .default) { (action) in
+    
+        let lupadString = isLupaOn ? "Vypnout lupu" : "Zapnout lupu"
+        let lupaAction = UIAlertAction(title: lupadString, style: .default) { (action) in
+            self.isLupaOn = !self.isLupaOn
         }
         
         let settingAction = UIAlertAction(title: "Nastavení", style: .default) { (action) in
@@ -253,9 +256,22 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         }
     }
     
-    func onOkClick(colorName: String, color: UIColor, mainColorMode: Int) {
-        print("colorName is: " + colorName)
-        print(mainColorMode)
+    func onOkClick(colorName: String, color: UIColor, mainColorMode: ColorMode) {
+        let myColor = MyColor(color: color, colorName: colorName, colorMode: mainColorMode, ID: -1)
+        do{
+            try db.insereData(myColor: myColor)
+        }
+        catch let ex{
+            print(ex)
+            showSaveErroDialog()
+        }
+    }
+    
+    func showSaveErroDialog()  {
+        let erroSheet = UIAlertController(title: "Chyba", message: "Hodnotu se nepodařilo uložit", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title : "Ok", style : .cancel) { (action) in}
+        erroSheet.addAction(cancelAction)
+        self.present(erroSheet, animated: true, completion: nil)
     }
     
 
