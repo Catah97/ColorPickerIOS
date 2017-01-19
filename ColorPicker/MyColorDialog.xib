@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="colorName" destination="dW3-Db-WcM" id="6Q1-Cw-fmF"/>
                 <outlet property="colorPreview" destination="B8M-eF-laH" id="vMy-Qs-G8f"/>
+                <outlet property="endButton" destination="4bA-5y-HwY" id="RcK-gB-Ip5"/>
                 <outlet property="tableView" destination="Qz5-bi-IHm" id="WYJ-Pw-N4I"/>
             </connections>
         </placeholder>

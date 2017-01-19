@@ -17,6 +17,8 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var colorName : UILabel!
     @IBOutlet weak var colorPreview: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var endButton: UIButton!
+
     
     private var modes = Array<ColorMode>(arrayLiteral: ColorMode.RGB , ColorMode.HEX, ColorMode.CMYK, ColorMode.HSV)
     
@@ -65,6 +67,8 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     private func setItems(){
+        colorPreview.layer.borderWidth = 1
+        colorPreview.layer.borderColor = UIColor(red: 198.0/255.0, green: 198.0/255.0, blue: 198.0/255.0, alpha: 1.0).cgColor
         colorPreview.backgroundColor = myColor.color
         colorName.text = myColor.colorName
     }
@@ -94,6 +98,7 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
             tableCell = UITableViewCell.init(style: .default, reuseIdentifier: "MyCell")
         }
         if position == 0 {
+            tableCell?.selectionStyle = UITableViewCellSelectionStyle.none
             tableCell?.textLabel?.font = UIFont.boldSystemFont(ofSize: 12.0)
         }
         else{

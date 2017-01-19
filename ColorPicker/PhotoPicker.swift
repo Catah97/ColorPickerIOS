@@ -156,9 +156,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         
         let settingAction = UIAlertAction(title: "Nastavení", style: .default) { (action) in
             self.showSetting()
-        }
-        settingAction.setValue(UIImage(named: "setting"), forKey: "image")
-        
+        }        
         let myColorsAction = UIAlertAction(title: "Moje barvy", style: .default) { (action) in
             self.showMyColors()
         }

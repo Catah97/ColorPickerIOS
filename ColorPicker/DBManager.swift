@@ -19,7 +19,7 @@ class DBManager{
                   MyColor(color: UIColor.yellow, colorName: "zluta",colorMode: ColorMode.HEX, ID : 2),
                   MyColor(color: UIColor.green, colorName: "zelena",colorMode: ColorMode.HSV, ID : 3)]
 
-    let id = Expression<Int64>("id")
+    let id = Expression<Int>("id")
     let name = Expression<String?>("name")
     let color = Expression<String>("color")
     let colorMode = Expression<String>("colorMode")
@@ -83,9 +83,20 @@ class DBManager{
         return result
     }
     
-    public func updateMainColorMode(selectedColorMode : ColorMode, myColor : MyColor){
+    public func updateMainColorMode(selectedColorMode : ColorMode, myColor : MyColor) throws{
         let color = myColor
         color.colorMode = selectedColorMode
-        colors[myColor.ID] = color
+        let filter = colorsTable.filter(id == color.ID)
+        if try db.run(filter.update(self.colorMode <- String(describing: selectedColorMode))) == 0 {
+            throw NSError(domain: "No date updated", code: 1, userInfo: nil)
+        }
+    }
+    
+    public func deleteRecord(id : Int) throws{
+        let filter = colorsTable.filter(self.id == id)
+        if try db.run(filter.delete()) == 0 {
+            throw NSError(domain: "No row deleted", code: 2, userInfo: nil)
+
+        }
     }
 }

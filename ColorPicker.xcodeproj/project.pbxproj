@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1E1CB2D41DF0D06D0012AFC5 /* PhotoDialogUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E1CB2D31DF0D06D0012AFC5 /* PhotoDialogUIView.xib */; };
-		1E28A1EC1E1BAF2800545B95 /* MyColorDialogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E28A1EB1E1BAF2800545B95 /* MyColorDialogCell.swift */; };
-		1E5BBEBA1DED6A6A0089785B /* UIColorBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BBEB91DED6A6A0089785B /* UIColorBorderView.swift */; };
 		1EBCD4E31E09184C008E0E6F /* MyColorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCD4E21E09184C008E0E6F /* MyColorDialog.swift */; };
 		1EBCD4E51E091860008E0E6F /* MyColorDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EBCD4E41E091860008E0E6F /* MyColorDialog.xib */; };
 		1EBCD4E71E09417C008E0E6F /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCD4E61E09417C008E0E6F /* MyColor.swift */; };
@@ -35,6 +33,9 @@
 		1ED1A1661E2E54B9007D0676 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1A1651E2E54B9007D0676 /* DBManager.swift */; };
 		1EDB36281DFCC496000CC7E9 /* MyColorViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB36271DFCC496000CC7E9 /* MyColorViewControler.swift */; };
 		1EDB362A1DFCC4DC000CC7E9 /* MyColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB36291DFCC4DC000CC7E9 /* MyColorCell.swift */; };
+		1EFF4F3E1E30CCAC00A046DF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFF4F3D1E30CCAC00A046DF /* UIImage.swift */; };
+		1EFF4F421E30D3F400A046DF /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFF4F411E30D3F400A046DF /* UIButton.swift */; };
+		1EFF4F441E30D4BA00A046DF /* UIColorBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFF4F431E30D4BA00A046DF /* UIColorBorderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +57,6 @@
 
 /* Begin PBXFileReference section */
 		1E1CB2D31DF0D06D0012AFC5 /* PhotoDialogUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoDialogUIView.xib; sourceTree = "<group>"; };
-		1E28A1EB1E1BAF2800545B95 /* MyColorDialogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorDialogCell.swift; sourceTree = "<group>"; };
-		1E5BBEB91DED6A6A0089785B /* UIColorBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorBorderView.swift; sourceTree = "<group>"; };
 		1EBCD4E21E09184C008E0E6F /* MyColorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorDialog.swift; sourceTree = "<group>"; };
 		1EBCD4E41E091860008E0E6F /* MyColorDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyColorDialog.xib; sourceTree = "<group>"; };
 		1EBCD4E61E09417C008E0E6F /* MyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
@@ -92,6 +91,9 @@
 		1ED1A1651E2E54B9007D0676 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		1EDB36271DFCC496000CC7E9 /* MyColorViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorViewControler.swift; sourceTree = "<group>"; };
 		1EDB36291DFCC4DC000CC7E9 /* MyColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorCell.swift; sourceTree = "<group>"; };
+		1EFF4F3D1E30CCAC00A046DF /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		1EFF4F411E30D3F400A046DF /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		1EFF4F431E30D4BA00A046DF /* UIColorBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorBorderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,9 +224,11 @@
 		1ECD39A41DE4377F00896C1F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1EFF4F431E30D4BA00A046DF /* UIColorBorderView.swift */,
 				1ECD39A21DE4375900896C1F /* PhotoLayer.swift */,
 				1ECD39A51DE437A800896C1F /* UIColor.swift */,
-				1E5BBEB91DED6A6A0089785B /* UIColorBorderView.swift */,
+				1EFF4F3D1E30CCAC00A046DF /* UIImage.swift */,
+				1EFF4F411E30D3F400A046DF /* UIButton.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -245,7 +249,6 @@
 				1EBCD4E21E09184C008E0E6F /* MyColorDialog.swift */,
 				1EBCD4E41E091860008E0E6F /* MyColorDialog.xib */,
 				1EBCD4E61E09417C008E0E6F /* MyColor.swift */,
-				1E28A1EB1E1BAF2800545B95 /* MyColorDialogCell.swift */,
 			);
 			name = MyColors;
 			sourceTree = "<group>";
@@ -389,14 +392,14 @@
 			files = (
 				1ECD39A31DE4375900896C1F /* PhotoLayer.swift in Sources */,
 				1ECD39A61DE437A800896C1F /* UIColor.swift in Sources */,
+				1EFF4F421E30D3F400A046DF /* UIButton.swift in Sources */,
 				1EDB362A1DFCC4DC000CC7E9 /* MyColorCell.swift in Sources */,
-				1E28A1EC1E1BAF2800545B95 /* MyColorDialogCell.swift in Sources */,
 				1ECD39611DE42ED400896C1F /* ViewController.swift in Sources */,
 				1EBCD4E71E09417C008E0E6F /* MyColor.swift in Sources */,
+				1EFF4F441E30D4BA00A046DF /* UIColorBorderView.swift in Sources */,
 				1ECD39A11DE4368500896C1F /* DLRadioButton.m in Sources */,
 				1ECD39951DE4356700896C1F /* PhotoPicker.swift in Sources */,
 				1ECD39991DE435C500896C1F /* PhotoColorUIView.swift in Sources */,
-				1E5BBEBA1DED6A6A0089785B /* UIColorBorderView.swift in Sources */,
 				1ECD395F1DE42ED400896C1F /* AppDelegate.swift in Sources */,
 				1ECD39921DE4353000896C1F /* SettingControler.swift in Sources */,
 				1ECD39971DE4358A00896C1F /* PhotoPickDialog.swift in Sources */,
@@ -404,6 +407,7 @@
 				1ECD39AB1DE4383F00896C1F /* CustomIOSAlertView.m in Sources */,
 				1ECD398F1DE4349700896C1F /* Alerdialog.swift in Sources */,
 				1EDB36281DFCC496000CC7E9 /* MyColorViewControler.swift in Sources */,
+				1EFF4F3E1E30CCAC00A046DF /* UIImage.swift in Sources */,
 				1EBCD4E31E09184C008E0E6F /* MyColorDialog.swift in Sources */,
 				1ECD399C1DE4364D00896C1F /* ColorMode.swift in Sources */,
 				1ED1A1631E2E53A1007D0676 /* WelcomeUIViewControler.swift in Sources */,

@@ -14,12 +14,17 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var btnAlbum: UIButton!
     @IBOutlet weak var btnCamera: UIButton!
     @IBOutlet weak var btnInternet: UIButton!
-    var isShowed : Bool = false
+    @IBOutlet weak var btnMyColors: UIButton!
     
+
+    var isShowed : Bool = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavigationBtn()
+        btnMyColors.setBackgroundColor(color: UIColor.black, forState: .highlighted)
+
     }
     
     func addNavigationBtn() {
