@@ -12,7 +12,8 @@ import QuartzCore
 class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
 
     
-    
+    @IBOutlet weak var magnifyingScrollView: UIScrollView!
+    @IBOutlet weak var magnifyingView: UIImageView!
     @IBOutlet weak var imgPhoto: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var photoColorUI: PhotoColorUIView!
@@ -22,15 +23,24 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     @IBOutlet weak var imageConstraintLeft: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintBottom: NSLayoutConstraint!
     
+    @IBOutlet weak var magnifyConstraintTop: NSLayoutConstraint!
+    @IBOutlet weak var magnifyConstraintLeft: NSLayoutConstraint!
+    
     var lastZoomScale: CGFloat = -1
     var lastColor : UIColor = UIColor.white
     var isSetted : Bool = false
     var isLupaOn : Bool = false
     var db : DBManager!
     
+    var image : UIImage?
+
+    
+    
     @IBAction func onPick(){
         PhotoPickDialog.showUiAlert(color: lastColor, delegate: self ,controler: self)
     }
+    
+    
     
     @IBAction func doubleTap(_ recognizer: UITapGestureRecognizer) {
         if let scrollV = self.scrollView {
@@ -44,6 +54,17 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             }
         }
     }
+
+    
+    @IBAction func onColorChange(_ pin: UIPanGestureRecognizer) {
+        let position = pin.location(in: self.imgPhoto);
+        onColorChange(pos: position)
+    }
+    
+    @IBAction func onColorChangeTab(_ pin: UITapGestureRecognizer) {
+        let position = pin.location(in: self.imgPhoto);
+        onColorChange(pos: position)
+    }
     
     func zoomRectForScale(scale : CGFloat, center : CGPoint) -> CGRect {
         var zoomRect = CGRect.zero
@@ -56,13 +77,9 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         }
         return zoomRect;
     }
-
-    @IBAction func onColorChange(_ pin: UIPanGestureRecognizer) {
-        let position = pin.location(in: self.imgPhoto);
-        onColorChange(pos: position)
-    }
     
     func onColorChange(pos : CGPoint) {
+        scrollTo(point: pos)
         var color : UIColor
         if  pos.x > 0 && pos.y > 0 &&
             pos.x < self.imgPhoto.bounds.width && pos.y < self.imgPhoto.bounds.height {
@@ -82,11 +99,8 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     func onColorChange(color : UIColor) {
         lastColor = color
         photoColorUI.onColorChange(color: color)
-    }
-    
-    
-    open var image : UIImage?
 
+    }
 
     func getNextOrientation(img : UIImage, rotateRight : Bool) -> UIImageOrientation {
         switch img.imageOrientation{
@@ -112,7 +126,8 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !isSetted {
-            imgPhoto.image = image
+            self.imgPhoto.image = image
+            self.magnifyingView.image = image
             updateZoom()
             addNavigationBtn()
         }
@@ -243,7 +258,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             
             var hPadding = (viewHeight - scrollView.zoomScale * imageHeight) / 2
             if hPadding < 0 { hPadding = 0 }
-
+            print(wPadding)
             
             imageConstraintLeft.constant = wPadding
             imageConstraintRight.constant = wPadding
@@ -252,6 +267,15 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             
             view.layoutIfNeeded()
         }
+    }
+    
+    
+    func scrollTo(point : CGPoint) {
+        let x = point.x - 50;
+        let y = point.y - 50
+        magnifyConstraintLeft.constant = -x
+            magnifyConstraintTop.constant = -y
+        self.magnifyingScrollView.layoutIfNeeded()
     }
     
     func onOkClick(colorName: String, color: UIColor, mainColorMode: ColorMode) {
