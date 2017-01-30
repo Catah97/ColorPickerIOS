@@ -11,7 +11,6 @@ import QuartzCore
 
 class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
 
-    
     @IBOutlet weak var magnifyingScrollView: UIScrollView!
     @IBOutlet weak var magnifyingView: UIImageView!
     @IBOutlet weak var imgPhoto: UIImageView!
@@ -29,7 +28,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     var lastZoomScale: CGFloat = -1
     var lastColor : UIColor = UIColor.white
     var isSetted : Bool = false
-    var isLupaOn : Bool = false
+    var isMagnifyingOn : Bool = false
     var db : DBManager!
     
     var image : UIImage?
@@ -55,15 +54,23 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         }
     }
 
+    func onColorChange() {
+        let color = UIColor.white
+        photoColorUI.onColorChange(color: color)
+    }
+    
+    func onColorChange(color : UIColor) {
+        lastColor = color
+        photoColorUI.onColorChange(color: color)
+        
+    }
     
     @IBAction func onColorChange(_ pin: UIPanGestureRecognizer) {
-        let position = pin.location(in: self.imgPhoto);
-        onColorChange(pos: position)
+        onColorChange(pin : pin)
     }
     
     @IBAction func onColorChangeTab(_ pin: UITapGestureRecognizer) {
-        let position = pin.location(in: self.imgPhoto);
-        onColorChange(pos: position)
+        onColorChange(pin : pin)
     }
     
     func zoomRectForScale(scale : CGFloat, center : CGPoint) -> CGRect {
@@ -78,8 +85,15 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         return zoomRect;
     }
     
-    func onColorChange(pos : CGPoint) {
-        scrollTo(point: pos)
+    func onColorChange(pin: UIGestureRecognizer) {
+        let position = pin.location(in: self.imgPhoto);
+        let touchePostion = pin.location(in: self.scrollView)
+        onColorChange(pos: position, touchePoint : touchePostion)
+    }
+    
+    func onColorChange(pos : CGPoint, touchePoint : CGPoint) {
+        self.scrollTo(point: pos)
+        self.moveWithMagnifying(point: touchePoint)
         var color : UIColor
         if  pos.x > 0 && pos.y > 0 &&
             pos.x < self.imgPhoto.bounds.width && pos.y < self.imgPhoto.bounds.height {
@@ -89,17 +103,6 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             color = UIColor.white
         }
         onColorChange(color: color)
-    }
-    
-    func onColorChange() {
-        let color = UIColor.white
-        photoColorUI.onColorChange(color: color)
-    }
-    
-    func onColorChange(color : UIColor) {
-        lastColor = color
-        photoColorUI.onColorChange(color: color)
-
     }
 
     func getNextOrientation(img : UIImage, rotateRight : Bool) -> UIImageOrientation {
@@ -164,9 +167,9 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             
         }
     
-        let lupadString = isLupaOn ? "Vypnout lupu" : "Zapnout lupu"
+        let lupadString = isMagnifyingOn ? "Vypnout lupu" : "Zapnout lupu"
         let lupaAction = UIAlertAction(title: lupadString, style: .default) { (action) in
-            self.isLupaOn = !self.isLupaOn
+            self.isMagnifyingOn = !self.isMagnifyingOn
         }
         
         let settingAction = UIAlertAction(title: "Nastavení", style: .default) { (action) in
@@ -191,7 +194,9 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     }
     
     func rotateImage(rotateRight : Bool) {
-        self.imgPhoto.image = self.rotateImage(img: self.imgPhoto.image!, orientation: self.getNextOrientation(img: self.imgPhoto.image!, rotateRight: rotateRight))
+        let image = self.rotateImage(img: self.imgPhoto.image!, orientation: self.getNextOrientation(img: self.imgPhoto.image!, rotateRight: rotateRight))
+        self.imgPhoto.image = image
+        self.magnifyingView.image = image
         updateZoom()
         updateConstraints()
     }
@@ -254,12 +259,14 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             // center image if it is smaller than the scroll view
             var wPadding = (viewWidth - scrollView.zoomScale * imageWidth) / 2
             
-            if wPadding < 0 { wPadding = 0 }
+            if wPadding < 0 {
+                wPadding = 0
+            }
             
             var hPadding = (viewHeight - scrollView.zoomScale * imageHeight) / 2
-            if hPadding < 0 { hPadding = 0 }
-            print(wPadding)
-            
+            if hPadding < 0 {
+                hPadding = 0
+            }
             imageConstraintLeft.constant = wPadding
             imageConstraintRight.constant = wPadding
             imageConstraintTop.constant = hPadding
@@ -274,8 +281,32 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         let x = point.x - 50;
         let y = point.y - 50
         magnifyConstraintLeft.constant = -x
-            magnifyConstraintTop.constant = -y
+        magnifyConstraintTop.constant = -y
         self.magnifyingScrollView.layoutIfNeeded()
+    }
+    
+    func moveWithMagnifying(point : CGPoint) {
+        let scrollViewWidth = self.scrollView.frame.width
+        
+        let offset = self.scrollView.contentOffset
+        
+        let leftEdge = offset.x
+        let rightEdge = offset.x + scrollViewWidth
+        let topEdge = offset.y
+        var x = point.x
+        var y = point.y - 80
+        if x - 50 < leftEdge {
+            x = leftEdge + 50
+        }
+        if x + 50 > rightEdge{
+            x = rightEdge - 50
+        }
+        if y - 80 < topEdge{
+            y = point.y + 80
+        }
+        let magnifyPoint = CGPoint(x: x, y: y)
+            self.magnifyingScrollView.isHidden = !self.isMagnifyingOn
+            self.magnifyingScrollView.center = magnifyPoint;
     }
     
     func onOkClick(colorName: String, color: UIColor, mainColorMode: ColorMode) {
@@ -296,5 +327,4 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         self.present(erroSheet, animated: true, completion: nil)
     }
     
-
 }

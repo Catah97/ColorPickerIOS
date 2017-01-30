@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E1CB2D41DF0D06D0012AFC5 /* PhotoDialogUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E1CB2D31DF0D06D0012AFC5 /* PhotoDialogUIView.xib */; };
+		1E1D600D1E3EB0D100969185 /* UIMagnifyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1D600C1E3EB0D100969185 /* UIMagnifyingView.swift */; };
 		1EBCD4E31E09184C008E0E6F /* MyColorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCD4E21E09184C008E0E6F /* MyColorDialog.swift */; };
 		1EBCD4E51E091860008E0E6F /* MyColorDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EBCD4E41E091860008E0E6F /* MyColorDialog.xib */; };
 		1EBCD4E71E09417C008E0E6F /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCD4E61E09417C008E0E6F /* MyColor.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		1E1CB2D31DF0D06D0012AFC5 /* PhotoDialogUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoDialogUIView.xib; sourceTree = "<group>"; };
+		1E1D600C1E3EB0D100969185 /* UIMagnifyingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMagnifyingView.swift; sourceTree = "<group>"; };
 		1EBCD4E21E09184C008E0E6F /* MyColorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorDialog.swift; sourceTree = "<group>"; };
 		1EBCD4E41E091860008E0E6F /* MyColorDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyColorDialog.xib; sourceTree = "<group>"; };
 		1EBCD4E61E09417C008E0E6F /* MyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				1ECD39A51DE437A800896C1F /* UIColor.swift */,
 				1EFF4F3D1E30CCAC00A046DF /* UIImage.swift */,
 				1EFF4F411E30D3F400A046DF /* UIButton.swift */,
+				1E1D600C1E3EB0D100969185 /* UIMagnifyingView.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				1EDB362A1DFCC4DC000CC7E9 /* MyColorCell.swift in Sources */,
 				1ECD39611DE42ED400896C1F /* ViewController.swift in Sources */,
 				1EBCD4E71E09417C008E0E6F /* MyColor.swift in Sources */,
+				1E1D600D1E3EB0D100969185 /* UIMagnifyingView.swift in Sources */,
 				1EFF4F441E30D4BA00A046DF /* UIColorBorderView.swift in Sources */,
 				1ECD39A11DE4368500896C1F /* DLRadioButton.m in Sources */,
 				1ECD39951DE4356700896C1F /* PhotoPicker.swift in Sources */,

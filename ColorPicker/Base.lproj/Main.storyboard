@@ -287,7 +287,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="sXD-BT-PfS" id="vJa-fF-K0w">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ColorName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-wd-jOg" userLabel="ColorName">
@@ -831,6 +831,33 @@
                                         <rect key="frame" x="27" y="27" width="240" height="181"/>
                                         <gestureRecognizers/>
                                     </imageView>
+                                    <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="5jM-f1-c4u" customClass="UIMagnifireView" customModule="ColorPicker" customModuleProvider="target">
+                                        <rect key="frame" x="110" y="194" width="100" height="100"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="su7-nc-eQ6">
+                                                <rect key="frame" x="17" y="17" width="63" height="63"/>
+                                                <color key="backgroundColor" red="0.25098039220000001" green="0.63921568630000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="su7-nc-eQ6" firstAttribute="top" secondItem="5jM-f1-c4u" secondAttribute="top" id="514-oP-Ha4"/>
+                                            <constraint firstItem="su7-nc-eQ6" firstAttribute="left" secondItem="5jM-f1-c4u" secondAttribute="left" id="Uul-dk-0Dv"/>
+                                            <constraint firstAttribute="width" constant="100" id="q1b-aR-6Q4"/>
+                                            <constraint firstAttribute="height" constant="100" id="woT-7D-LQx"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </scrollView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="njd-XC-gvJ" secondAttribute="trailing" constant="-1" id="eYE-k7-Nsg"/>
@@ -844,22 +871,6 @@
                                     <outletCollection property="gestureRecognizers" destination="LHZ-GO-e05" appends="YES" id="2Np-xa-8XX"/>
                                     <outletCollection property="gestureRecognizers" destination="Bm0-rk-xTX" appends="YES" id="rEr-pJ-s4k"/>
                                 </connections>
-                            </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jM-f1-c4u">
-                                <rect key="frame" x="110" y="468" width="100" height="100"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="su7-nc-eQ6">
-                                        <rect key="frame" x="17" y="17" width="63" height="63"/>
-                                        <color key="backgroundColor" red="0.25098039220000001" green="0.63921568630000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.33279568002213322" blue="0.46873337182282526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="su7-nc-eQ6" firstAttribute="top" secondItem="5jM-f1-c4u" secondAttribute="top" id="514-oP-Ha4"/>
-                                    <constraint firstItem="su7-nc-eQ6" firstAttribute="left" secondItem="5jM-f1-c4u" secondAttribute="left" id="Uul-dk-0Dv"/>
-                                    <constraint firstAttribute="width" constant="100" id="q1b-aR-6Q4"/>
-                                    <constraint firstAttribute="height" constant="100" id="woT-7D-LQx"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
