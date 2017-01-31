@@ -27,4 +27,5 @@ class UIMagnifireView: UIScrollView {
             layer.borderColor = borderColor?.cgColor
         }
     }
+    
 }

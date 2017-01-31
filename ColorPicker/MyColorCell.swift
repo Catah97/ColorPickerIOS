@@ -4,7 +4,7 @@
 //
 //  Created by Martin Beran on 11.12.16.
 //  Copyright © 2016 Martin Beran. All rights reserved.
-//
+
 
 import UIKit
 

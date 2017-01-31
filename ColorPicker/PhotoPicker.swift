@@ -25,10 +25,14 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     @IBOutlet weak var magnifyConstraintTop: NSLayoutConstraint!
     @IBOutlet weak var magnifyConstraintLeft: NSLayoutConstraint!
     
+    @IBOutlet weak var crossConstraintTop: NSLayoutConstraint!
+    @IBOutlet weak var crossConstraintLeft: NSLayoutConstraint!
+    
     var lastZoomScale: CGFloat = -1
     var lastColor : UIColor = UIColor.white
-    var isSetted : Bool = false
+    var lastPoint : UIGestureRecognizer!
     var isMagnifyingOn : Bool = false
+    var firstStart : Bool = false
     var db : DBManager!
     
     var image : UIImage?
@@ -85,7 +89,8 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         return zoomRect;
     }
     
-    func onColorChange(pin: UIGestureRecognizer) {
+    func onColorChange(pin: UIGestureRecognizer)
+    {
         let position = pin.location(in: self.imgPhoto);
         let touchePostion = pin.location(in: self.scrollView)
         onColorChange(pos: position, touchePoint : touchePostion)
@@ -123,19 +128,21 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.db = DBManager()
+        addNavigationBtn()
         onColorChange()
+        firstStart = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !isSetted {
+        onColorChange(color: self.lastColor)
+        if firstStart {
             self.imgPhoto.image = image
             self.magnifyingView.image = image
             updateZoom()
-            addNavigationBtn()
+            updateConstraints()
         }
-        onColorChange(color: self.lastColor)
-        isSetted = false
+        firstStart = false
     }
 
 
@@ -208,13 +215,11 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     }
 
     func showSetting()  {
-        isSetted = true
         let settingPick = self.storyboard?.instantiateViewController(withIdentifier: "SettingControler") as! SettingControler
         self.navigationController?.pushViewController(settingPick, animated: true)
     }
     
     func showMyColors() {
-        isSetted = true
         let myColors = self.storyboard?.instantiateViewController(withIdentifier: "MyColors")
         self.navigationController?.pushViewController(myColors!, animated: true)
     }
@@ -234,7 +239,8 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
                               scrollView.bounds.size.height / image.size.height)
             
             if minZoom > 1 { minZoom = 1 }
-            
+        
+            print(minZoom)
             scrollView.minimumZoomScale = minZoom
             
             // Force scrollViewDidZoom fire if zoom did not change
@@ -271,7 +277,6 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             imageConstraintRight.constant = wPadding
             imageConstraintTop.constant = hPadding
             imageConstraintBottom.constant = hPadding
-            
             view.layoutIfNeeded()
         }
     }
@@ -283,6 +288,12 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         magnifyConstraintLeft.constant = -x
         magnifyConstraintTop.constant = -y
         self.magnifyingScrollView.layoutIfNeeded()
+        let offset = self.magnifyingScrollView.contentOffset
+        let leftEdge = offset.x
+        let topEdge = offset.y
+        crossConstraintLeft.constant = leftEdge
+        crossConstraintTop.constant = topEdge
+
     }
     
     func moveWithMagnifying(point : CGPoint) {

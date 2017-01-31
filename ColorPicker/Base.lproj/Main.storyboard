@@ -287,7 +287,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="sXD-BT-PfS" id="vJa-fF-K0w">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ColorName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-wd-jOg" userLabel="ColorName">
@@ -824,7 +824,7 @@
                                     <outlet property="rgbR" destination="rri-ek-bi9" id="ljG-I3-7Dn"/>
                                 </connections>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="QzT-kF-hMb">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="QzT-kF-hMb" customClass="UIPhotoPickerScrollView" customModule="ColorPicker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="79" width="320" height="489"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njd-XC-gvJ">
@@ -838,11 +838,26 @@
                                                 <rect key="frame" x="17" y="17" width="63" height="63"/>
                                                 <color key="backgroundColor" red="0.25098039220000001" green="0.63921568630000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </imageView>
+                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZr-sz-zvl" customClass="UICrossView" customModule="ColorPicker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.98451316544976941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Gh1-9a-2QF"/>
+                                                    <constraint firstAttribute="height" constant="100" id="JVP-O2-MbA"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="plusHeight">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="su7-nc-eQ6" firstAttribute="top" secondItem="5jM-f1-c4u" secondAttribute="top" id="514-oP-Ha4"/>
+                                            <constraint firstItem="UZr-sz-zvl" firstAttribute="top" secondItem="5jM-f1-c4u" secondAttribute="top" constant="100" id="EBZ-x5-vzG"/>
                                             <constraint firstItem="su7-nc-eQ6" firstAttribute="left" secondItem="5jM-f1-c4u" secondAttribute="left" id="Uul-dk-0Dv"/>
+                                            <constraint firstItem="UZr-sz-zvl" firstAttribute="leading" secondItem="5jM-f1-c4u" secondAttribute="leading" constant="50" id="c66-j5-1li"/>
                                             <constraint firstAttribute="width" constant="100" id="q1b-aR-6Q4"/>
                                             <constraint firstAttribute="height" constant="100" id="woT-7D-LQx"/>
                                         </constraints>
@@ -887,13 +902,15 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="620-an-rMK"/>
                     <connections>
+                        <outlet property="crossConstraintLeft" destination="c66-j5-1li" id="Ha2-pl-JAf"/>
+                        <outlet property="crossConstraintTop" destination="EBZ-x5-vzG" id="pjl-mo-u4n"/>
                         <outlet property="imageConstraintBottom" destination="rsn-WH-n6X" id="3CV-OF-QHO"/>
                         <outlet property="imageConstraintLeft" destination="icQ-Ou-eA0" id="esf-7M-ytg"/>
                         <outlet property="imageConstraintRight" destination="eYE-k7-Nsg" id="fEL-Zh-Njr"/>
                         <outlet property="imageConstraintTop" destination="rkq-MT-9to" id="7be-VZ-HEZ"/>
                         <outlet property="imgPhoto" destination="njd-XC-gvJ" id="j6t-xd-cLk"/>
-                        <outlet property="magnifyConstraintLeft" destination="Uul-dk-0Dv" id="1RI-fD-ryD"/>
-                        <outlet property="magnifyConstraintTop" destination="514-oP-Ha4" id="Vch-IB-tJ7"/>
+                        <outlet property="magnifyConstraintLeft" destination="Uul-dk-0Dv" id="nHe-cH-UeL"/>
+                        <outlet property="magnifyConstraintTop" destination="514-oP-Ha4" id="11W-IH-NR7"/>
                         <outlet property="magnifyingScrollView" destination="5jM-f1-c4u" id="mf8-8J-60j"/>
                         <outlet property="magnifyingView" destination="su7-nc-eQ6" id="wcj-ES-e4t"/>
                         <outlet property="photoColorUI" destination="7rr-K0-LQI" id="J7m-h1-nLZ"/>
@@ -906,12 +923,12 @@
                         <action selector="onColorChange:" destination="hoW-zg-S6e" id="1jn-QR-hEf"/>
                     </connections>
                 </panGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="LHZ-GO-e05" userLabel="DoubleTap">
+                <tapGestureRecognizer delaysTouchesBegan="YES" numberOfTapsRequired="2" id="LHZ-GO-e05" userLabel="DoubleTap">
                     <connections>
                         <action selector="doubleTap:" destination="hoW-zg-S6e" id="oLb-Fq-DVX"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer cancelsTouchesInView="NO" delaysTouchesBegan="YES" delaysTouchesEnded="NO" id="Bm0-rk-xTX">
+                <tapGestureRecognizer delaysTouchesBegan="YES" id="Bm0-rk-xTX">
                     <connections>
                         <action selector="onColorChangeTab:" destination="hoW-zg-S6e" id="8Ju-eJ-tOX"/>
                     </connections>

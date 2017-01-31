@@ -12,6 +12,8 @@
 		1EBCD4E31E09184C008E0E6F /* MyColorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCD4E21E09184C008E0E6F /* MyColorDialog.swift */; };
 		1EBCD4E51E091860008E0E6F /* MyColorDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EBCD4E41E091860008E0E6F /* MyColorDialog.xib */; };
 		1EBCD4E71E09417C008E0E6F /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCD4E61E09417C008E0E6F /* MyColor.swift */; };
+		1EC033DD1E40790600DA1ED2 /* UICrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC033DC1E40790600DA1ED2 /* UICrossView.swift */; };
+		1EC033DF1E40BD5B00DA1ED2 /* UIPhotoPickerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC033DE1E40BD5B00DA1ED2 /* UIPhotoPickerScrollView.swift */; };
 		1ECD395F1DE42ED400896C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD395E1DE42ED400896C1F /* AppDelegate.swift */; };
 		1ECD39611DE42ED400896C1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD39601DE42ED400896C1F /* ViewController.swift */; };
 		1ECD39641DE42ED400896C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ECD39621DE42ED400896C1F /* Main.storyboard */; };
@@ -62,6 +64,8 @@
 		1EBCD4E21E09184C008E0E6F /* MyColorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorDialog.swift; sourceTree = "<group>"; };
 		1EBCD4E41E091860008E0E6F /* MyColorDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyColorDialog.xib; sourceTree = "<group>"; };
 		1EBCD4E61E09417C008E0E6F /* MyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
+		1EC033DC1E40790600DA1ED2 /* UICrossView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICrossView.swift; sourceTree = "<group>"; };
+		1EC033DE1E40BD5B00DA1ED2 /* UIPhotoPickerScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPhotoPickerScrollView.swift; sourceTree = "<group>"; };
 		1ECD395B1DE42ED400896C1F /* ColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECD395E1DE42ED400896C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ECD39601DE42ED400896C1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +236,8 @@
 				1EFF4F3D1E30CCAC00A046DF /* UIImage.swift */,
 				1EFF4F411E30D3F400A046DF /* UIButton.swift */,
 				1E1D600C1E3EB0D100969185 /* UIMagnifyingView.swift */,
+				1EC033DC1E40790600DA1ED2 /* UICrossView.swift */,
+				1EC033DE1E40BD5B00DA1ED2 /* UIPhotoPickerScrollView.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -400,12 +406,14 @@
 				1ECD39611DE42ED400896C1F /* ViewController.swift in Sources */,
 				1EBCD4E71E09417C008E0E6F /* MyColor.swift in Sources */,
 				1E1D600D1E3EB0D100969185 /* UIMagnifyingView.swift in Sources */,
+				1EC033DD1E40790600DA1ED2 /* UICrossView.swift in Sources */,
 				1EFF4F441E30D4BA00A046DF /* UIColorBorderView.swift in Sources */,
 				1ECD39A11DE4368500896C1F /* DLRadioButton.m in Sources */,
 				1ECD39951DE4356700896C1F /* PhotoPicker.swift in Sources */,
 				1ECD39991DE435C500896C1F /* PhotoColorUIView.swift in Sources */,
 				1ECD395F1DE42ED400896C1F /* AppDelegate.swift in Sources */,
 				1ECD39921DE4353000896C1F /* SettingControler.swift in Sources */,
+				1EC033DF1E40BD5B00DA1ED2 /* UIPhotoPickerScrollView.swift in Sources */,
 				1ECD39971DE4358A00896C1F /* PhotoPickDialog.swift in Sources */,
 				1ED1A1661E2E54B9007D0676 /* DBManager.swift in Sources */,
 				1ECD39AB1DE4383F00896C1F /* CustomIOSAlertView.m in Sources */,
