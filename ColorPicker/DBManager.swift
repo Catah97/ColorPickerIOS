@@ -13,11 +13,6 @@ class DBManager{
     
     var db : Connection!
     let colorsTable = Table("colors")
-    
-    var colors = [MyColor(color: UIColor.black, colorName: "cerna",colorMode: ColorMode.RGB, ID : 0),
-                  MyColor(color: UIColor.blue, colorName: "modra",colorMode: ColorMode.CMYK, ID : 1),
-                  MyColor(color: UIColor.yellow, colorName: "zluta",colorMode: ColorMode.HEX, ID : 2),
-                  MyColor(color: UIColor.green, colorName: "zelena",colorMode: ColorMode.HSV, ID : 3)]
 
     let id = Expression<Int>("id")
     let name = Expression<String?>("name")
