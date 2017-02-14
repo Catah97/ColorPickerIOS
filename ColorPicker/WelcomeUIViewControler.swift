@@ -16,15 +16,30 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var btnInternet: UIButton!
     @IBOutlet weak var btnMyColors: UIButton!
     
-
+    
     var isShowed : Bool = false
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setShortcutItems()
+        hideAll(isHidden: true)
         addNavigationBtn()
         btnMyColors.setBackgroundColor(color: UIColor.black, forState: .highlighted)
-
+    }
+    
+    func setShortcutItems(){
+        let icon = UIApplicationShortcutIcon(type: UIApplicationShortcutIconType.bookmark)
+        let galeryItem = UIApplicationShortcutItem(type: "galery", localizedTitle: "Galerie", localizedSubtitle: "Vybrat fotku z galerie", icon: icon, userInfo: nil)
+        let cameraIcon = UIApplicationShortcutIcon(type: UIApplicationShortcutIconType.capturePhoto)
+        let cameraItem = UIApplicationShortcutItem(type: "camera", localizedTitle: "Camera", localizedSubtitle: "Vyfotit fotografii", icon: cameraIcon, userInfo: nil)
+        UIApplication.shared.shortcutItems = [galeryItem, cameraItem]
+    }
+    
+    func hideAll(isHidden : Bool){
+        btnAlbum.isHidden = isHidden
+        btnCamera.isHidden = isHidden
+        btnInternet.isHidden = isHidden
     }
     
     func addNavigationBtn() {
@@ -40,6 +55,7 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func plusBtnClick() {
+        hideAll(isHidden: false)
         startAnimation(show: !self.isShowed)
     }
     @IBAction func startInternetBtn() {
@@ -54,6 +70,7 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("imagePickerController")
         let pickedImage : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         startPhotoViewController(image : pickedImage)
         self.dismiss(animated: true, completion: nil)
@@ -98,7 +115,6 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func startAnimation(show: Bool) {
-        print("startAnimation show: " + String(show))
         self.isShowed = show
         self.plusBtn.isEnabled = false;
         let animDuration = 0.5

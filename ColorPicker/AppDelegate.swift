@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var window: UIWindow?
 
@@ -41,6 +41,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        print(" App shorcut selected: " + shortcutItem.type)
+        if shortcutItem.type == "galery" {
+            startGalery()
+        }
+        else if shortcutItem.type == "camera"{
+            startCamera()
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let viewControler = self.window?.rootViewController as! UINavigationController
+        let pickedImage : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        startPhotoViewController(navigationControler: viewControler, image : pickedImage)
+    }
+    
+    func startPhotoViewController(navigationControler : UINavigationController, image : UIImage) {
+        let photoPick = navigationControler.storyboard?.instantiateViewController(withIdentifier: "PhotoPicker") as! PhotoPicker
+        print(photoPick)
+        photoPick.image = image
+        navigationControler.pushViewController(photoPick, animated: true)
+        navigationControler.dismiss(animated: true, completion: nil)
+    }
+ 
+    func startGalery()  {
+        startImagePick(type: .photoLibrary)
+    }
+    
+    func startCamera() {
+        let viewControler = self.window?.rootViewController
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            startImagePick(type: .camera)
+        }
+        else{
+            Alerdialog.showUiAlert("Error", text: "Camera is no available", controler: viewControler!)
+        }
+    }
+    
+    func startImagePick(type : UIImagePickerControllerSourceType) {
+        let viewControler = self.window?.rootViewController
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = type
+        viewControler?.present(imagePicker, animated: true, completion: nil)
+    }
 }
 

@@ -185,7 +185,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLe-9Q-Jc3" userLabel="BtnInternet">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" restorationIdentifier="internet" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLe-9Q-Jc3" userLabel="BtnInternet">
                                 <rect key="frame" x="130" y="222" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8jk-Ue-DY7"/>
@@ -196,7 +196,7 @@
                                     <action selector="startInternetBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="9fU-FK-utO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-HE-inA" userLabel="BtnCamera">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" restorationIdentifier="camera" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-HE-inA" userLabel="BtnCamera">
                                 <rect key="frame" x="130" y="222" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="ShW-BP-Qu1"/>
@@ -207,7 +207,7 @@
                                     <action selector="startCameraBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="BDO-4z-LW7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nt-nP-MQa">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" restorationIdentifier="album" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nt-nP-MQa">
                                 <rect key="frame" x="130" y="222" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="EnA-mK-85n"/>
@@ -218,7 +218,7 @@
                                     <action selector="startGaleryBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="BvG-7b-nzl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0R-AO-ce2" userLabel="BtnPlus">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="plus" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0R-AO-ce2" userLabel="BtnPlus">
                                 <rect key="frame" x="130" y="222" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="87U-JR-XEk"/>
@@ -229,7 +229,7 @@
                                     <action selector="plusBtnClick" destination="BYZ-38-t0r" eventType="touchUpInside" id="5uA-HL-hj3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBF-zl-6Nv" userLabel="BtnMyColors">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBF-zl-6Nv" userLabel="BtnMyColors" customClass="UIButtonBorderView" customModule="ColorPicker" customModuleProvider="target">
                                 <rect key="frame" x="110" y="444" width="100" height="40"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -241,19 +241,37 @@
                                 <state key="highlighted">
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="AnO-KU-DXy" kind="show" id="q4I-4M-3pW"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pg-Wr-9Xs" customClass="UIPhotoPickerImageView" customModule="ColorPicker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="191"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="191" id="NfX-fn-4Mc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="u0R-AO-ce2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0Mq-hv-5j5"/>
+                            <constraint firstItem="1pg-Wr-9Xs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4BB-PW-Lr9"/>
                             <constraint firstItem="u0R-AO-ce2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9w2-j1-IfJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PBF-zl-6Nv" secondAttribute="bottom" constant="20" id="Be4-Ca-jNG"/>
                             <constraint firstItem="T8b-HE-inA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EFP-y6-NdB"/>
+                            <constraint firstAttribute="trailing" secondItem="1pg-Wr-9Xs" secondAttribute="trailing" id="HFY-Zv-SFe"/>
                             <constraint firstItem="uLe-9Q-Jc3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KKa-gn-M90"/>
                             <constraint firstItem="T8b-HE-inA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RQO-rx-Jqn"/>
+                            <constraint firstItem="1pg-Wr-9Xs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Yk1-Gg-ZdX"/>
                             <constraint firstItem="3nt-nP-MQa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="e3G-8n-kpl"/>
                             <constraint firstItem="3nt-nP-MQa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l1L-h4-AuJ"/>
                             <constraint firstItem="uLe-9Q-Jc3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wnu-uN-G5x"/>
@@ -827,7 +845,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="QzT-kF-hMb" customClass="UIPhotoPickerScrollView" customModule="ColorPicker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="79" width="320" height="489"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njd-XC-gvJ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njd-XC-gvJ" customClass="UIPhotoPickerImageView" customModule="ColorPicker" customModuleProvider="target">
                                         <rect key="frame" x="27" y="27" width="240" height="181"/>
                                         <gestureRecognizers/>
                                     </imageView>
@@ -882,9 +900,9 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="hoW-zg-S6e" id="bsZ-nE-1aC"/>
-                                    <outletCollection property="gestureRecognizers" destination="NOg-hP-XrD" appends="YES" id="wRt-Az-xfj"/>
                                     <outletCollection property="gestureRecognizers" destination="LHZ-GO-e05" appends="YES" id="2Np-xa-8XX"/>
-                                    <outletCollection property="gestureRecognizers" destination="Bm0-rk-xTX" appends="YES" id="rEr-pJ-s4k"/>
+                                    <outletCollection property="gestureRecognizers" destination="Uoh-2V-z97" appends="YES" id="Ca9-hd-zXp"/>
+                                    <outletCollection property="gestureRecognizers" destination="D1z-nf-p1K" appends="YES" id="G5e-e7-XUK"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -904,6 +922,7 @@
                     <connections>
                         <outlet property="crossConstraintLeft" destination="c66-j5-1li" id="Ha2-pl-JAf"/>
                         <outlet property="crossConstraintTop" destination="EBZ-x5-vzG" id="pjl-mo-u4n"/>
+                        <outlet property="doubleTap" destination="LHZ-GO-e05" id="u0b-jZ-Mg6"/>
                         <outlet property="imageConstraintBottom" destination="rsn-WH-n6X" id="3CV-OF-QHO"/>
                         <outlet property="imageConstraintLeft" destination="icQ-Ou-eA0" id="esf-7M-ytg"/>
                         <outlet property="imageConstraintRight" destination="eYE-k7-Nsg" id="fEL-Zh-Njr"/>
@@ -915,24 +934,25 @@
                         <outlet property="magnifyingView" destination="su7-nc-eQ6" id="wcj-ES-e4t"/>
                         <outlet property="photoColorUI" destination="7rr-K0-LQI" id="J7m-h1-nLZ"/>
                         <outlet property="scrollView" destination="QzT-kF-hMb" id="40T-Ht-0Ys"/>
+                        <outlet property="tapGesture" destination="Uoh-2V-z97" id="64j-AU-HWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGx-08-fwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer delaysTouchesBegan="YES" minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="NOg-hP-XrD" userLabel="PanMove">
+                <tapGestureRecognizer delaysTouchesEnded="NO" numberOfTapsRequired="2" id="LHZ-GO-e05" userLabel="DoubleTap">
                     <connections>
-                        <action selector="onColorChange:" destination="hoW-zg-S6e" id="1jn-QR-hEf"/>
+                        <action selector="doubleTap:" destination="hoW-zg-S6e" id="qek-Nx-4dw"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer delaysTouchesBegan="YES" allowableMovement="7777" minimumPressDuration="0.10000000000000001" id="Uoh-2V-z97">
+                    <connections>
+                        <action selector="tapGesture:" destination="hoW-zg-S6e" id="uD3-Mb-zdU"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <panGestureRecognizer delaysTouchesBegan="YES" minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="D1z-nf-p1K">
+                    <connections>
+                        <action selector="panGesture:" destination="hoW-zg-S6e" id="aI0-yp-Ddj"/>
                     </connections>
                 </panGestureRecognizer>
-                <tapGestureRecognizer delaysTouchesBegan="YES" numberOfTapsRequired="2" id="LHZ-GO-e05" userLabel="DoubleTap">
-                    <connections>
-                        <action selector="doubleTap:" destination="hoW-zg-S6e" id="oLb-Fq-DVX"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer delaysTouchesBegan="YES" id="Bm0-rk-xTX">
-                    <connections>
-                        <action selector="onColorChangeTab:" destination="hoW-zg-S6e" id="8Ju-eJ-tOX"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1010.625" y="138.38028169014083"/>
         </scene>

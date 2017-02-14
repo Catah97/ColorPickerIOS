@@ -13,7 +13,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
 
     @IBOutlet weak var magnifyingScrollView: UIScrollView!
     @IBOutlet weak var magnifyingView: UIImageView!
-    @IBOutlet weak var imgPhoto: UIImageView!
+    @IBOutlet weak var imgPhoto: UIPhotoPickerImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var photoColorUI: PhotoColorUIView!
     
@@ -27,6 +27,9 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     
     @IBOutlet weak var crossConstraintTop: NSLayoutConstraint!
     @IBOutlet weak var crossConstraintLeft: NSLayoutConstraint!
+    
+    @IBOutlet var doubleTap: UITapGestureRecognizer!
+    @IBOutlet var tapGesture: UILongPressGestureRecognizer!
     
     var lastZoomScale: CGFloat = -1
     var lastColor : UIColor = UIColor.white
@@ -57,25 +60,6 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             }
         }
     }
-
-    func onColorChange() {
-        let color = UIColor.white
-        photoColorUI.onColorChange(color: color)
-    }
-    
-    func onColorChange(color : UIColor) {
-        lastColor = color
-        photoColorUI.onColorChange(color: color)
-        
-    }
-    
-    @IBAction func onColorChange(_ pin: UIPanGestureRecognizer) {
-        onColorChange(pin : pin)
-    }
-    
-    @IBAction func onColorChangeTab(_ pin: UITapGestureRecognizer) {
-        onColorChange(pin : pin)
-    }
     
     func zoomRectForScale(scale : CGFloat, center : CGPoint) -> CGRect {
         var zoomRect = CGRect.zero
@@ -88,17 +72,59 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         }
         return zoomRect;
     }
+
+    func onColorChange() {
+        let color = UIColor.white
+        photoColorUI.onColorChange(color: color)
+    }
+    
+    func onColorChange(color : UIColor) {
+        lastColor = color
+        photoColorUI.onColorChange(color: color)
+        
+    }
+    
+    
+    @IBAction func tapGesture(_ sender: UILongPressGestureRecognizer) {
+        onColorChange(pin : sender)
+    }
+    
+    @IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
+        onColorChange(pin : sender)
+    }
     
     func onColorChange(pin: UIGestureRecognizer)
     {
+        if pin.state == UIGestureRecognizerState.began {
+            if self.isMagnifyingOn {
+                print("Show Magnify")
+                self.magnifyingScrollView.isHidden = false
+            }
+        }
+        else if pin.state == UIGestureRecognizerState.ended{
+            if self.isMagnifyingOn {
+                print("Hide Magnify")
+                self.magnifyingScrollView.isHidden = true
+            }
+        }
         let position = pin.location(in: self.imgPhoto);
         let touchePostion = pin.location(in: self.scrollView)
-        onColorChange(pos: position, touchePoint : touchePostion)
+        let top_edge = self.scrollView.contentOffset.y
+        let different = touchePostion.y - top_edge
+        if different > 0 {
+            onColorChange(pos: position, touchePoint : touchePostion)
+        }
+    }
+    
+    func drawPoint(touchePostion : CGPoint){
+        self.imgPhoto.touchedPoint = touchePostion
+        self.imgPhoto.setNeedsDisplay()
     }
     
     func onColorChange(pos : CGPoint, touchePoint : CGPoint) {
         self.scrollTo(point: pos)
         self.moveWithMagnifying(point: touchePoint)
+        self.drawPoint(touchePostion: touchePoint)
         var color : UIColor
         if  pos.x > 0 && pos.y > 0 &&
             pos.x < self.imgPhoto.bounds.width && pos.y < self.imgPhoto.bounds.height {
@@ -109,6 +135,8 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         }
         onColorChange(color: color)
     }
+    
+    
 
     func getNextOrientation(img : UIImage, rotateRight : Bool) -> UIImageOrientation {
         switch img.imageOrientation{
@@ -316,8 +344,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
             y = point.y + 80
         }
         let magnifyPoint = CGPoint(x: x, y: y)
-            self.magnifyingScrollView.isHidden = !self.isMagnifyingOn
-            self.magnifyingScrollView.center = magnifyPoint;
+        self.magnifyingScrollView.center = magnifyPoint;
     }
     
     func onOkClick(colorName: String, color: UIColor, mainColorMode: ColorMode) {
