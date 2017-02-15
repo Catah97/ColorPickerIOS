@@ -20,15 +20,46 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
     var isShowed : Bool = false
 
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setShortcutItems()
-        hideAll(isHidden: true)
         addNavigationBtn()
         btnMyColors.setBackgroundColor(color: UIColor.black, forState: .highlighted)
+        setDataAsDefault(btnToset: self.btnAlbum)
     }
     
-    func setShortcutItems(){
+    override func viewWillAppear(_ animated: Bool) {
+        setDefaultAlpha()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setDataAsDefault()
+    }
+    
+    private func setDataAsDefault(){
+        self.isShowed = false
+        setDataAsDefault(btnToset: self.btnAlbum)
+        setDataAsDefault(btnToset: self.btnCamera)
+        setDataAsDefault(btnToset: self.btnInternet)
+        
+    }
+    
+    private func setDefaultAlpha()  {
+        self.btnAlbum.alpha = 0
+        self.btnCamera.alpha = 0
+        self.btnInternet.alpha = 0
+    }
+    
+    private func setDataAsDefault(btnToset : UIButton) {
+        var frame = btnToset.frame
+        frame.origin.x = self.plusBtn.frame.origin.x
+        frame.origin.y = self.plusBtn.frame.origin.y
+        btnToset.frame = frame
+    }
+    
+    private func setShortcutItems(){
         let icon = UIApplicationShortcutIcon(type: UIApplicationShortcutIconType.bookmark)
         let galeryItem = UIApplicationShortcutItem(type: "galery", localizedTitle: "Galerie", localizedSubtitle: "Vybrat fotku z galerie", icon: icon, userInfo: nil)
         let cameraIcon = UIApplicationShortcutIcon(type: UIApplicationShortcutIconType.capturePhoto)
@@ -36,11 +67,6 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
         UIApplication.shared.shortcutItems = [galeryItem, cameraItem]
     }
     
-    func hideAll(isHidden : Bool){
-        btnAlbum.isHidden = isHidden
-        btnCamera.isHidden = isHidden
-        btnInternet.isHidden = isHidden
-    }
     
     func addNavigationBtn() {
         let item = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action:
@@ -55,7 +81,6 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func plusBtnClick() {
-        hideAll(isHidden: false)
         startAnimation(show: !self.isShowed)
     }
     @IBAction func startInternetBtn() {
@@ -161,7 +186,6 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
             })
         }
     }
-
     
     func setAlpha(view : UIView, alpha : Int) {
         view.alpha = CGFloat(alpha);
