@@ -9,12 +9,12 @@
 import UIKit
 import QuartzCore
 
-class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
+class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate, UIPhotoPickerScrollViewDelegate {
 
     @IBOutlet weak var magnifyingScrollView: UIScrollView!
     @IBOutlet weak var magnifyingView: UIImageView!
     @IBOutlet weak var imgPhoto: UIPhotoPickerImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: UIPhotoPickerScrollView!
     @IBOutlet weak var photoColorUI: PhotoColorUIView!
     
     @IBOutlet weak var imageConstraintTop: NSLayoutConstraint!
@@ -45,8 +45,6 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     @IBAction func onPick(){
         PhotoPickDialog.showUiAlert(color: lastColor, delegate: self ,controler: self)
     }
-    
-    
     
     @IBAction func doubleTap(_ recognizer: UITapGestureRecognizer) {
         if let scrollV = self.scrollView {
@@ -81,38 +79,27 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     func onColorChange(color : UIColor) {
         lastColor = color
         photoColorUI.onColorChange(color: color)
-        
     }
     
     
-    @IBAction func tapGesture(_ sender: UILongPressGestureRecognizer) {
-        onColorChange(pin : sender)
-    }
-    
-    @IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
-        onColorChange(pin : sender)
-    }
-    
-    func onColorChange(pin: UIGestureRecognizer)
-    {
-        if pin.state == UIGestureRecognizerState.began {
-            if self.isMagnifyingOn {
+    func onColorChange(_ touches: Set<UITouch>,touchState : UIGestureRecognizerState, forceTouch: Bool) {
+        if touchState == UIGestureRecognizerState.began {
+            if self.isMagnifyingOn || forceTouch {
                 print("Show Magnify")
                 self.magnifyingScrollView.isHidden = false
             }
         }
-        else if pin.state == UIGestureRecognizerState.ended{
-            if self.isMagnifyingOn {
-                print("Hide Magnify")
-                self.magnifyingScrollView.isHidden = true
-            }
+        else if touchState == UIGestureRecognizerState.ended{
+            print("Hide Magnify")
+            self.magnifyingScrollView.isHidden = true
         }
-        let position = pin.location(in: self.imgPhoto);
-        let touchePostion = pin.location(in: self.scrollView)
+        let touch = touches.first
+        let position = touch?.location(in: self.imgPhoto);
+        let touchePostion = touch?.location(in: self.scrollView)
         let top_edge = self.scrollView.contentOffset.y
-        let different = touchePostion.y - top_edge
+        let different = (touchePostion?.y)! - top_edge
         if different > 0 {
-            onColorChange(pos: position, touchePoint : touchePostion)
+            onColorChange(pos: position!, touchePoint : touchePostion!)
         }
     }
     
@@ -124,7 +111,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     func onColorChange(pos : CGPoint, touchePoint : CGPoint) {
         self.scrollTo(point: pos)
         self.moveWithMagnifying(point: touchePoint)
-        self.drawPoint(touchePostion: touchePoint)
+        //self.drawPoint(touchePostion: touchePoint)
         var color : UIColor
         if  pos.x > 0 && pos.y > 0 &&
             pos.x < self.imgPhoto.bounds.width && pos.y < self.imgPhoto.bounds.height {
@@ -135,7 +122,6 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         }
         onColorChange(color: color)
     }
-    
     
 
     func getNextOrientation(img : UIImage, rotateRight : Bool) -> UIImageOrientation {
@@ -158,6 +144,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         self.db = DBManager()
         addNavigationBtn()
         onColorChange()
+        scrollView.photoPickerScrollViewDelegate = self
         firstStart = true
     }
     
@@ -193,28 +180,28 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
         myActionSheet.view.tintColor = UIColor.darkText
         //myActionSheet.setValue(attributedString, forKey: "attributedMessage")
         
-        let turnLeftAction = UIAlertAction(title: "Otočit doleva", style: .default) { (action) in
+        let turnLeftAction = UIAlertAction(title: "Rotate left", style: .default) { (action) in
             self.rotateImage(rotateRight: false)
         }
         
-        let turnRightAction = UIAlertAction(title: "Otočit doprava", style: .default) { (action) in
+        let turnRightAction = UIAlertAction(title: "Rotate right", style: .default) { (action) in
             self.rotateImage(rotateRight: true)
             
         }
     
-        let lupadString = isMagnifyingOn ? "Vypnout lupu" : "Zapnout lupu"
+        let lupadString = isMagnifyingOn ? "Magnify off" : "Magnify on"
         let lupaAction = UIAlertAction(title: lupadString, style: .default) { (action) in
             self.isMagnifyingOn = !self.isMagnifyingOn
         }
         
-        let settingAction = UIAlertAction(title: "Nastavení", style: .default) { (action) in
+        let settingAction = UIAlertAction(title: "Setting", style: .default) { (action) in
             self.showSetting()
         }        
-        let myColorsAction = UIAlertAction(title: "Moje barvy", style: .default) { (action) in
+        let myColorsAction = UIAlertAction(title: "My colors", style: .default) { (action) in
             self.showMyColors()
         }
         
-        let cancelAction = UIAlertAction(title : "Zrušit", style : .cancel) { (action) in
+        let cancelAction = UIAlertAction(title : "Cancel", style : .cancel) { (action) in
     
         }
         
@@ -359,7 +346,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate {
     }
     
     func showSaveErroDialog()  {
-        let erroSheet = UIAlertController(title: "Chyba", message: "Hodnotu se nepodařilo uložit", preferredStyle: .alert)
+        let erroSheet = UIAlertController(title: "Error", message: "App cannot save value", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title : "Ok", style : .cancel) { (action) in}
         erroSheet.addAction(cancelAction)
         self.present(erroSheet, animated: true, completion: nil)

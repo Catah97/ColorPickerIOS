@@ -53,11 +53,11 @@ class MyColorViewControler : UITableViewController, MyColorDialogDelegate{
     
     
     func showDeleteDialog(id : Int, positionInList : IndexPath){
-        let deleteAlert = UIAlertController(title: "Pozor", message: "Přejete si odstranit tento záznam?", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title : "Ano", style : .default) { (action) in
+        let deleteAlert = UIAlertController(title: "Warring", message: "Would you like delete this value?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title : "Yes", style : .default) { (action) in
             self.deleteRecord(id : id , positionInList: positionInList)
         }
-        let cancelAction = UIAlertAction(title : "Ne", style : .destructive)
+        let cancelAction = UIAlertAction(title : "No", style : .destructive)
         deleteAlert.addAction(cancelAction)
         deleteAlert.addAction(yesAction)
         self.present(deleteAlert, animated: true, completion: nil)
@@ -116,7 +116,7 @@ class MyColorViewControler : UITableViewController, MyColorDialogDelegate{
     }
     
     private func showDeleteErrorAlert(){
-        showDialog(title: "Záznam se nepodařilo smazat")
+        showDialog(title: "Operation failed")
     }
     
     private func showUpdateMainColorModeError(){
@@ -124,11 +124,11 @@ class MyColorViewControler : UITableViewController, MyColorDialogDelegate{
     }
     
     private func showGetDataError(){
-        showDialog(title: "Data se nepodařilo načíst")
+        showDialog(title: "Data cannot be load")
     }
     
     private func showDialog(title : String){
-        let erroSheet = UIAlertController(title: "Chyba", message: title, preferredStyle: .alert)
+        let erroSheet = UIAlertController(title: "Error", message: title, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title : "Ok", style : .cancel) { (action) in}
         erroSheet.addAction(cancelAction)
         self.present(erroSheet, animated: true, completion: nil)

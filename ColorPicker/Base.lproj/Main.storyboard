@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="94Y-5P-vWK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="94Y-5P-vWK">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -38,7 +38,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zvolte barevný model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kr-uW-9uc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose color model:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kr-uW-9uc">
                                 <rect key="frame" x="16" y="28" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -176,7 +176,7 @@
         <!--WelcomeUI View Controler-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomeUIViewControler" customModule="ColorPicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeScreen" id="BYZ-38-t0r" customClass="WelcomeUIViewControler" customModule="ColorPicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -899,9 +899,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="hoW-zg-S6e" id="bsZ-nE-1aC"/>
-                                    <outletCollection property="gestureRecognizers" destination="LHZ-GO-e05" appends="YES" id="2Np-xa-8XX"/>
-                                    <outletCollection property="gestureRecognizers" destination="Uoh-2V-z97" appends="YES" id="Ca9-hd-zXp"/>
-                                    <outletCollection property="gestureRecognizers" destination="D1z-nf-p1K" appends="YES" id="G5e-e7-XUK"/>
+                                    <outletCollection property="gestureRecognizers" destination="LHZ-GO-e05" appends="YES" id="kxz-bc-Fav"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -942,12 +940,12 @@
                         <action selector="doubleTap:" destination="hoW-zg-S6e" id="qek-Nx-4dw"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer delaysTouchesBegan="YES" allowableMovement="7777" minimumPressDuration="0.10000000000000001" id="Uoh-2V-z97">
+                <pongPressGestureRecognizer delaysTouchesEnded="NO" allowableMovement="7777" minimumPressDuration="0.10000000000000001" id="Uoh-2V-z97">
                     <connections>
                         <action selector="tapGesture:" destination="hoW-zg-S6e" id="uD3-Mb-zdU"/>
                     </connections>
                 </pongPressGestureRecognizer>
-                <panGestureRecognizer delaysTouchesBegan="YES" minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="D1z-nf-p1K">
+                <panGestureRecognizer delaysTouchesEnded="NO" minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="D1z-nf-p1K">
                     <connections>
                         <action selector="panGesture:" destination="hoW-zg-S6e" id="aI0-yp-Ddj"/>
                     </connections>

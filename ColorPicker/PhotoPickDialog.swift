@@ -14,7 +14,7 @@ class PhotoPickDialog {
         let customAlerView = CustomIOSAlertView()
         let photoDialogUIView = photoPickView(color: color, delegate: delegate)
         customAlerView?.containerView = photoDialogUIView as UIView
-        customAlerView?.buttonTitles = ["Ok", "Zrušit"]
+        customAlerView?.buttonTitles = ["Ok", "Cancel"]
         customAlerView?.delegate = photoDialogUIView
         customAlerView?.useMotionEffects = true
         customAlerView?.isButtonsVisible = true;

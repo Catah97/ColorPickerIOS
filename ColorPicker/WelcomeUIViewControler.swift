@@ -16,11 +16,8 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var btnInternet: UIButton!
     @IBOutlet weak var btnMyColors: UIButton!
     
-    
     var isShowed : Bool = false
-
-    
-
+    public var shortcutItemType : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +25,28 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
         addNavigationBtn()
         btnMyColors.setBackgroundColor(color: UIColor.black, forState: .highlighted)
         setDataAsDefault(btnToset: self.btnAlbum)
+        self.navigationItem.hidesBackButton = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setDefaultAlpha()
+        checkShorcutItem()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setDataAsDefault()
+    }
+    
+    private func checkShorcutItem(){
+        if let shortcutItemType = self.shortcutItemType{
+            if shortcutItemType == "galery" {
+                startGalery()
+            }
+            else if shortcutItemType == "camera"{
+                startCamera()
+            }
+        }
+        shortcutItemType = nil
     }
     
     private func setDataAsDefault(){
@@ -61,9 +72,9 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
     
     private func setShortcutItems(){
         let icon = UIApplicationShortcutIcon(type: UIApplicationShortcutIconType.bookmark)
-        let galeryItem = UIApplicationShortcutItem(type: "galery", localizedTitle: "Galerie", localizedSubtitle: "Vybrat fotku z galerie", icon: icon, userInfo: nil)
+        let galeryItem = UIApplicationShortcutItem(type: "galery", localizedTitle: "Galery", localizedSubtitle: "Choose photo from galery", icon: icon, userInfo: nil)
         let cameraIcon = UIApplicationShortcutIcon(type: UIApplicationShortcutIconType.capturePhoto)
-        let cameraItem = UIApplicationShortcutItem(type: "camera", localizedTitle: "Camera", localizedSubtitle: "Vyfotit fotografii", icon: cameraIcon, userInfo: nil)
+        let cameraItem = UIApplicationShortcutItem(type: "camera", localizedTitle: "Camera", localizedSubtitle: "Snap photo", icon: cameraIcon, userInfo: nil)
         UIApplication.shared.shortcutItems = [galeryItem, cameraItem]
     }
     
