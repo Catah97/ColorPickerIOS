@@ -95,7 +95,7 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
         let position = indexPath.row
         var tableCell = tableView.dequeueReusableCell(withIdentifier: "MyCell")
         if  (tableCell == nil){
-            tableCell = UITableViewCell.init(style: .default, reuseIdentifier: "MyCell")
+            tableCell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "MyCell")
         }
         if position == 0 {
             tableCell?.selectionStyle = UITableViewCellSelectionStyle.none
@@ -104,8 +104,36 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
         else{
             tableCell?.textLabel?.font = UIFont.systemFont(ofSize: 12.0)
         }
-        tableCell?.textLabel?.text = ColorMode.createColorValues(color: myColor.color, colorMode: modes[position])
+        let text = getColorModeString(position)
+        tableCell?.textLabel?.text = text
+        addImageViewToCell(tableCell!, position: position)
+    
         return tableCell!
+    }
+    
+    private func getColorModeString(_ position : Int) -> String{
+        return ColorMode.createColorValues(color: myColor.color, colorMode: modes[position])
+    }
+    
+    private func addImageViewToCell(_ tableCell : UITableViewCell, position : Int){
+        let cellWidth = tableCell.frame.width
+        let cellHeight = tableCell.frame.height
+        let imageViewWidth = CGFloat(30)
+        let imageViewHeight = CGFloat(30)
+        let imageXPosition = cellWidth - imageViewHeight - 50
+        let imageYPosition = cellHeight / 2 - imageViewHeight / 2
+        let copyBtn = UIButton.init(frame: CGRect(x: imageXPosition, y: imageYPosition , width: imageViewWidth, height: imageViewHeight))
+        copyBtn.setBackgroundImage(#imageLiteral(resourceName: "copy"), for: .normal)
+        copyBtn.tag = position
+        copyBtn.isUserInteractionEnabled = true
+        copyBtn.setTitleColor(UIColor.black, for: .selected)
+        setCopyImageViewAsTapListener(copyBtn)
+        tableCell.addSubview(copyBtn)
+    }
+    
+    private func setCopyImageViewAsTapListener(_ copyBtn: UIButton){
+        copyBtn.addTarget(self, action: #selector(self.copy(_:)), for: .touchUpInside)
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -116,6 +144,12 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
             delegate.tableView(selectedColorMode: colorMode, myColor: self.myColor)
             parrent.close()
         }
+    }
+    
+    func copy(sender: UIButton!) {
+        let position = sender.tag
+        let textToCopy = getColorModeString(position)
+        UIPasteboard.general.string = textToCopy
     }
     
     open static func showUiAlert(myColor: MyColor, controler : UIViewController, delegate : MyColorDialogDelegate) {

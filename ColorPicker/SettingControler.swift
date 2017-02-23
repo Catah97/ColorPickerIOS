@@ -36,7 +36,7 @@ class SettingControler: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Nastavení"
+        self.navigationItem.title = "Setting"
         setCheckBoxValue(value: SettingControler.colorMode())
 
     }

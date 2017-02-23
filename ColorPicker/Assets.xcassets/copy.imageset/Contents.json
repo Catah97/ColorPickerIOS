@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "777-thumbs-up-toolbar.png",
+      "filename" : "copy24.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "777-thumbs-up-toolbar@2x.png",
+      "filename" : "copy64.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "777-thumbs-up-toolbar@3x.png",
+      "filename" : "copy+ěá.png",
       "scale" : "3x"
     }
   ],
