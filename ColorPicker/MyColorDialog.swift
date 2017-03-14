@@ -122,18 +122,14 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
         let imageViewHeight = CGFloat(30)
         let imageXPosition = cellWidth - imageViewHeight - 50
         let imageYPosition = cellHeight / 2 - imageViewHeight / 2
-        let copyBtn = UIButton.init(frame: CGRect(x: imageXPosition, y: imageYPosition , width: imageViewWidth, height: imageViewHeight))
+        let copyBtn = UIButton(type: .custom)
+        copyBtn.frame = CGRect(x: imageXPosition, y: imageYPosition , width: imageViewWidth, height: imageViewHeight)
         copyBtn.setBackgroundImage(#imageLiteral(resourceName: "copy"), for: .normal)
         copyBtn.tag = position
         copyBtn.isUserInteractionEnabled = true
         copyBtn.setTitleColor(UIColor.black, for: .selected)
-        setCopyImageViewAsTapListener(copyBtn)
+        copyBtn.addTarget(self, action: #selector(copyTask(sender:)), for: .touchUpInside)
         tableCell.addSubview(copyBtn)
-    }
-    
-    private func setCopyImageViewAsTapListener(_ copyBtn: UIButton){
-        copyBtn.addTarget(self, action: #selector(self.copy(_:)), for: .touchUpInside)
-
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -146,8 +142,10 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func copy(sender: UIButton!) {
+    
+    func copyTask(sender : UIButton) {
         let position = sender.tag
+        print(position)
         let textToCopy = getColorModeString(position)
         UIPasteboard.general.string = textToCopy
     }
