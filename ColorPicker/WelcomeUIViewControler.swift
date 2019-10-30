@@ -86,7 +86,7 @@ class WelcomeUIViewControler: UIViewController, UIImagePickerControllerDelegate,
         self.navigationItem.rightBarButtonItem = item
     }
     
-    func onStartSettingClick() {
+    @objc func onStartSettingClick() {
         let settingPick = self.storyboard?.instantiateViewController(withIdentifier: "SettingControler") as! SettingControler
         self.navigationController?.pushViewController(settingPick, animated: true)
     }

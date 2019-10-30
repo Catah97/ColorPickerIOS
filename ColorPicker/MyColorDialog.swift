@@ -143,7 +143,7 @@ class MyColorDialog : UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    func copyTask(sender : UIButton) {
+    @objc func copyTask(sender : UIButton) {
         let position = sender.tag
         print(position)
         let textToCopy = getColorModeString(position)

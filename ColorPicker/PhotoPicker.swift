@@ -171,7 +171,7 @@ class PhotoPicker: UIViewController, UIScrollViewDelegate, PhotoDialogDelegate, 
     }
     
     
-    func optionMenuClick() {
+    @objc func optionMenuClick() {
         showOptionDialog()
     }
     
