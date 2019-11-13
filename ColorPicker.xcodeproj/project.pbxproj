@@ -36,6 +36,7 @@
 		1ECD3EBB1E52E4BD00113DEE /* UIButtonBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD3EBA1E52E4BD00113DEE /* UIButtonBorderView.swift */; };
 		1ED1A1631E2E53A1007D0676 /* WelcomeUIViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1A1621E2E53A1007D0676 /* WelcomeUIViewControler.swift */; };
 		1ED1A1661E2E54B9007D0676 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1A1651E2E54B9007D0676 /* DBManager.swift */; };
+		1ED9446B237C60B900EAE7EB /* DownloadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED9446A237C60B900EAE7EB /* DownloadingViewController.swift */; };
 		1EDB36281DFCC496000CC7E9 /* MyColorViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB36271DFCC496000CC7E9 /* MyColorViewControler.swift */; };
 		1EDB362A1DFCC4DC000CC7E9 /* MyColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB36291DFCC4DC000CC7E9 /* MyColorCell.swift */; };
 		1EFF4F3E1E30CCAC00A046DF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFF4F3D1E30CCAC00A046DF /* UIImage.swift */; };
@@ -100,6 +101,7 @@
 		1ECD3EBA1E52E4BD00113DEE /* UIButtonBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonBorderView.swift; sourceTree = "<group>"; };
 		1ED1A1621E2E53A1007D0676 /* WelcomeUIViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeUIViewControler.swift; sourceTree = "<group>"; };
 		1ED1A1651E2E54B9007D0676 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		1ED9446A237C60B900EAE7EB /* DownloadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingViewController.swift; sourceTree = "<group>"; };
 		1EDB36271DFCC496000CC7E9 /* MyColorViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorViewControler.swift; sourceTree = "<group>"; };
 		1EDB36291DFCC4DC000CC7E9 /* MyColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyColorCell.swift; sourceTree = "<group>"; };
 		1EFF4F3D1E30CCAC00A046DF /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				1ECD39911DE4353000896C1F /* SettingControler.swift */,
 				1ED1A1621E2E53A1007D0676 /* WelcomeUIViewControler.swift */,
 				1ECD399E1DE4368500896C1F /* ColorPicker-Bridging-Header.h */,
+				1ED9446A237C60B900EAE7EB /* DownloadingViewController.swift */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				1ECD39A31DE4375900896C1F /* PhotoLayer.swift in Sources */,
 				1ECD39A61DE437A800896C1F /* UIColor.swift in Sources */,
 				1EFF4F421E30D3F400A046DF /* UIButton.swift in Sources */,
+				1ED9446B237C60B900EAE7EB /* DownloadingViewController.swift in Sources */,
 				1EDB362A1DFCC4DC000CC7E9 /* MyColorCell.swift in Sources */,
 				1ECD39611DE42ED400896C1F /* ViewController.swift in Sources */,
 				1E220C7D1E559A2B00FD01F7 /* UIPhotoPickerScrollView.swift in Sources */,
