@@ -381,9 +381,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Vr-wh-mNr">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://localhost:8080/pictures/IMG_20191019_170638.jpg" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Vr-wh-mNr">
                                 <rect key="frame" x="16" y="37" width="288" height="34"/>
-                                <string key="text">https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=3304&amp;q=80</string>
                                 <nil key="textColor"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -461,6 +460,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1XV-Eo-4Xf"/>
                     <connections>
+                        <outlet property="btnDownload" destination="d7R-0C-ls9" id="hvR-UO-lfv"/>
                         <outlet property="progressLabel" destination="rfE-rY-xeh" id="xUT-t7-AA7"/>
                         <outlet property="progressLayout" destination="aq4-6J-vJp" id="Ew9-JA-6eC"/>
                         <outlet property="progressView" destination="PxE-aB-5vj" id="pdb-v5-jqk"/>
